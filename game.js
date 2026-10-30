@@ -4,23 +4,24 @@
 // ============================================================================
 
 const LADDER_LEVELS = [
-  { level: 1,  title: "Cautivo en marcha",         gem: "100 pts",   milestone: false },
-  { level: 2,  title: "Guardián de la Memoria",    gem: "200 pts",   milestone: false },
-  { level: 3,  title: "Estudiante en Babilonia",   gem: "300 pts",   milestone: false },
-  { level: 4,  title: "Defensor de su Identidad",  gem: "500 pts",   milestone: false },
-  { level: 5,  title: "Fiel en la Prueba (10 Días)", gem: "1,000 pts", milestone: true  },
-  { level: 6,  title: "Propósito de Corazón",      gem: "2,000 pts", milestone: false },
-  { level: 7,  title: "Vencedor del Banquete",     gem: "4,000 pts", milestone: false },
-  { level: 8,  title: "Mente Lúcida y Pura",       gem: "8,000 pts", milestone: false },
-  { level: 9,  title: "Hijo del Dios Vivo",        gem: "16,000 pts", milestone: false },
-  { level: 10, title: "Sabio de Judá",             gem: "32,000 pts", milestone: true  },
-  { level: 11, title: "Guardián del Sábado",       gem: "64,000 pts", milestone: false },
-  { level: 12, title: "Dominio Propio",            gem: "125,000 pts", milestone: false },
-  { level: 13, title: "Luz ante los Reyes",        gem: "250,000 pts", milestone: false },
-  { level: 14, title: "Testigo del Tiempo del Fin", gem: "500,000 pts", milestone: false },
+  { level: 1,  title: "Cautivo en marcha",                gem: "100 pts",   milestone: false },
+  { level: 2,  title: "Guardián de la Memoria",           gem: "200 pts",   milestone: false },
+  { level: 3,  title: "Estudiante en Babilonia",          gem: "300 pts",   milestone: false },
+  { level: 4,  title: "Defensor de su Identidad",         gem: "500 pts",   milestone: false },
+  { level: 5,  title: "Fiel en la Prueba (10 Días)",      gem: "1,000 pts", milestone: true  },
+  { level: 6,  title: "Propósito de Corazón",             gem: "2,000 pts", milestone: false },
+  { level: 7,  title: "Vencedor del Banquete",            gem: "4,000 pts", milestone: false },
+  { level: 8,  title: "Mente Lúcida y Pura",              gem: "8,000 pts", milestone: false },
+  { level: 9,  title: "Hijo del Dios Vivo",               gem: "16,000 pts", milestone: false },
+  { level: 10, title: "Sabio de Judá",                    gem: "32,000 pts", milestone: true  },
+  { level: 11, title: "Guardián del Sábado",              gem: "64,000 pts", milestone: false },
+  { level: 12, title: "Dominio Propio",                   gem: "125,000 pts", milestone: false },
+  { level: 13, title: "Luz ante los Reyes",               gem: "250,000 pts", milestone: false },
+  { level: 14, title: "Testigo del Tiempo del Fin",       gem: "500,000 pts", milestone: false },
   { level: 15, title: "10 Veces Mejor • Ancla Inmutable", gem: "1,000,000", milestone: true }
 ];
 
+// 16 PREGUNTAS (Múltiplo exacto de 4: 4 Rondas de 4 preguntas)
 const QUESTIONS_DB = [
   {
     category: "Contexto Histórico",
@@ -77,6 +78,20 @@ const QUESTIONS_DB = [
     prophetHint: "Pista Profética: Daniel 1:5 señala el tiempo exacto que el rey señaló para que fuesen educados antes de presentarse delante de él.",
     reference: "El Centro Educacional del Mundo • Daniel 1:5",
     explanation: "La estrategia babilónica consistía en asimilar a la juventud de linaje real mediante 3 años de inmersión cultural, astronómica y científica en la sabiduría caldea."
+  },
+  {
+    category: "Estrategia Babilónica",
+    question: "Además de enseñarles «Sabiduría Caldea» y «Borrar su Identidad», ¿con qué propósito político usaba Babilonia a estos jóvenes cautivos de linaje real?",
+    options: [
+      "Como rehenes políticos para garantizar la lealtad de las naciones conquistadas",
+      "Como soldados de infantería en las fronteras con Egipto",
+      "Como constructores de los ladrillos de la Torre de Babel",
+      "Como comerciantes marítimos en el mar Mediterráneo"
+    ],
+    correct: 0,
+    prophetHint: "Pista Profética: En la diapositiva 'El Centro Educacional del Mundo', el tercer pilar con icono de corona se titula 'Rehenes Políticos'.",
+    reference: "El Centro Educacional del Mundo • Rehenes Políticos",
+    explanation: "Los jóvenes de linaje real eran retenidos como rehenes políticos en la corte para garantizar la lealtad y sumisión de las naciones conquistadas."
   },
   {
     category: "Guerra Espiritual por la Identidad",
@@ -234,6 +249,9 @@ const QUESTIONS_DB = [
   }
 ];
 
+// Para el juego individual de 15 escalones usamos 15 preguntas
+const SOLO_QUESTIONS = QUESTIONS_DB.filter((_, idx) => idx !== 4);
+
 // ============================================================================
 // MOTOR DE SONIDO SINTETIZADO (Web Audio API - Sin archivos externos)
 // ============================================================================
@@ -282,14 +300,12 @@ class SoundEngine {
   }
 
   playQuestionStart() {
-    // Acorde solemne estilo estudio profético / millonario
     this.playTone(220, 'sine', 0.45, 0, 0.1);
     this.playTone(329.63, 'triangle', 0.55, 0.08, 0.08);
     this.playTone(440, 'sine', 0.65, 0.16, 0.09);
   }
 
   playCorrect() {
-    // Fanfarria dorada ascendente
     this.playTone(440, 'triangle', 0.18, 0, 0.14);
     this.playTone(554.37, 'triangle', 0.18, 0.12, 0.14);
     this.playTone(659.25, 'triangle', 0.22, 0.24, 0.15);
@@ -297,9 +313,12 @@ class SoundEngine {
   }
 
   playWrong() {
-    // Acorde grave de fallo
     this.playTone(196, 'sawtooth', 0.3, 0, 0.1);
     this.playTone(185, 'sawtooth', 0.55, 0.22, 0.12);
+  }
+
+  playTick() {
+    this.playTone(800, 'sine', 0.06, 0, 0.06);
   }
 
   playLifeline() {
@@ -319,7 +338,37 @@ class SoundEngine {
 const sound = new SoundEngine();
 
 // ============================================================================
-// ESTADO DEL JUEGO
+// NAVEGACIÓN ENTRE VISTAS
+// ============================================================================
+function hideAllViews() {
+  const views = [
+    'portal-view',
+    'game-view',
+    'result-view',
+    'groups-setup-view',
+    'groups-game-view',
+    'groups-result-view'
+  ];
+  views.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.classList.remove('active');
+  });
+}
+
+function showPortal() {
+  stopGroupTimer();
+  hideAllViews();
+  document.getElementById('portal-view').classList.add('active');
+}
+
+function toggleSound() {
+  const active = sound.toggle();
+  const btn = document.getElementById('btn-sound');
+  btn.textContent = active ? '🔊 Sonido: ON' : '🔇 Sonido: OFF';
+}
+
+// ============================================================================
+// JUEGO 1: MODO INDIVIDUAL ¿QUIÉN QUIERE SER MILLONARIO? (15 PREGUNTAS)
 // ============================================================================
 let currentQuestionIndex = 0;
 let isAnswered = false;
@@ -329,16 +378,8 @@ let lifelinesUsed = {
   wiseMen: false
 };
 
-// ============================================================================
-// FUNCIONES DE NAVEGACIÓN Y RENDERIZADO
-// ============================================================================
-function showPortal() {
-  document.getElementById('portal-view').classList.add('active');
-  document.getElementById('game-view').classList.remove('active');
-  document.getElementById('result-view').classList.remove('active');
-}
-
 function startGame() {
+  stopGroupTimer();
   currentQuestionIndex = 0;
   isAnswered = false;
   lifelinesUsed = { fiftyFifty: false, prophet: false, wiseMen: false };
@@ -347,8 +388,7 @@ function startGame() {
   document.getElementById('btn-prophet').disabled = false;
   document.getElementById('btn-wisemen').disabled = false;
 
-  document.getElementById('portal-view').classList.remove('active');
-  document.getElementById('result-view').classList.remove('active');
+  hideAllViews();
   document.getElementById('game-view').classList.add('active');
 
   renderLadder();
@@ -377,25 +417,20 @@ function renderLadder() {
 
 function loadQuestion() {
   isAnswered = false;
-  const qData = QUESTIONS_DB[currentQuestionIndex];
+  const qData = SOLO_QUESTIONS[currentQuestionIndex];
   const levelInfo = LADDER_LEVELS[currentQuestionIndex];
 
   sound.playQuestionStart();
   renderLadder();
 
   document.getElementById('question-counter').textContent =
-    `Pregunta ${currentQuestionIndex + 1} de ${QUESTIONS_DB.length} • ${levelInfo.title}`;
+    `Pregunta ${currentQuestionIndex + 1} de ${SOLO_QUESTIONS.length} • ${levelInfo.title}`;
   document.getElementById('question-category').textContent = qData.category;
   document.getElementById('question-text').textContent = qData.question;
 
-  // Ocultar cajas de pista y explicación
-  const hintBox = document.getElementById('prophet-hint-box');
-  hintBox.classList.remove('visible');
+  document.getElementById('prophet-hint-box').classList.remove('visible');
+  document.getElementById('explanation-box').classList.remove('visible');
 
-  const expBox = document.getElementById('explanation-box');
-  expBox.classList.remove('visible');
-
-  // Renderizar opciones A, B, C, D
   const letters = ['A', 'B', 'C', 'D'];
   const optionsGrid = document.getElementById('options-grid');
   optionsGrid.innerHTML = '';
@@ -417,10 +452,9 @@ function selectAnswer(selectedIndex) {
   if (isAnswered) return;
   isAnswered = true;
 
-  const qData = QUESTIONS_DB[currentQuestionIndex];
+  const qData = SOLO_QUESTIONS[currentQuestionIndex];
   const isCorrect = selectedIndex === qData.correct;
 
-  // Deshabilitar botones y mostrar estado visual
   qData.options.forEach((_, idx) => {
     const btn = document.getElementById(`opt-btn-${idx}`);
     btn.disabled = true;
@@ -431,7 +465,6 @@ function selectAnswer(selectedIndex) {
     }
   });
 
-  // Mostrar explicación bíblica / profética
   const expBox = document.getElementById('explanation-box');
   const statusEl = document.getElementById('explanation-status');
   const refEl = document.getElementById('explanation-ref');
@@ -446,7 +479,7 @@ function selectAnswer(selectedIndex) {
     statusEl.textContent = '¡RESPUESTA CORRECTA! • Fidelidad Confirmada';
     statusEl.className = 'explanation-status status-ok';
 
-    if (currentQuestionIndex === QUESTIONS_DB.length - 1) {
+    if (currentQuestionIndex === SOLO_QUESTIONS.length - 1) {
       nextBtn.textContent = '🏆 Ver Coronación Final (10 Veces Mejor)';
       nextBtn.onclick = () => finishGame(true);
     } else {
@@ -467,19 +500,14 @@ function selectAnswer(selectedIndex) {
   expBox.classList.add('visible');
 }
 
-// ============================================================================
-// COMODINES (LIFELINES)
-// ============================================================================
 function useFiftyFifty() {
   if (isAnswered || lifelinesUsed.fiftyFifty) return;
   lifelinesUsed.fiftyFifty = true;
   document.getElementById('btn-5050').disabled = true;
   sound.playLifeline();
 
-  const qData = QUESTIONS_DB[currentQuestionIndex];
+  const qData = SOLO_QUESTIONS[currentQuestionIndex];
   const wrongIndices = [0, 1, 2, 3].filter(i => i !== qData.correct);
-
-  // Mezclar y ocultar 2 incorrectas
   wrongIndices.sort(() => Math.random() - 0.5);
   const toHide = wrongIndices.slice(0, 2);
 
@@ -498,9 +526,9 @@ function useProphetHint() {
   document.getElementById('btn-prophet').disabled = true;
   sound.playLifeline();
 
-  const qData = QUESTIONS_DB[currentQuestionIndex];
+  const qData = SOLO_QUESTIONS[currentQuestionIndex];
   const hintBox = document.getElementById('prophet-hint-box');
-  document.getElementById('prophet-hint-title').textContent = '📜 rollo del profeta / cita inspirada';
+  document.getElementById('prophet-hint-title').textContent = '📜 ROLLO DEL PROFETA / CITA INSPIRADA';
   document.getElementById('prophet-hint-text').textContent = qData.prophetHint;
   hintBox.classList.add('visible');
 }
@@ -511,7 +539,7 @@ function useWiseMen() {
   document.getElementById('btn-wisemen').disabled = true;
   sound.playLifeline();
 
-  const qData = QUESTIONS_DB[currentQuestionIndex];
+  const qData = SOLO_QUESTIONS[currentQuestionIndex];
   const letters = ['A', 'B', 'C', 'D'];
   const correctLetter = letters[qData.correct];
 
@@ -522,11 +550,8 @@ function useWiseMen() {
   hintBox.classList.add('visible');
 }
 
-// ============================================================================
-// PANTALLA DE RESULTADO FINAL
-// ============================================================================
 function finishGame(wonAll) {
-  document.getElementById('game-view').classList.remove('active');
+  hideAllViews();
   document.getElementById('result-view').classList.add('active');
 
   const iconEl = document.getElementById('result-icon');
@@ -541,7 +566,6 @@ function finishGame(wonAll) {
     subtitleEl.textContent = 'Has respondido correctamente las 15 preguntas sobre las Joyas del Libro de Daniel (Capítulo 1).';
     quoteEl.textContent = '«Así como Dios llamó a Daniel para que testificase por él en Babilonia, nos llama hoy a nosotros para que seamos sus testigos en el mundo. Tanto en los asuntos menores como en los mayores... desea que revelemos a los hombres los principios de su reino.» — Elena G. de White, Profetas y Reyes, p. 358';
   } else {
-    // Calcular nivel seguro alcanzado
     let safeLevel = "Aprendiz en Judá (0 pts)";
     if (currentQuestionIndex >= 10) {
       safeLevel = "Sabio de Judá (32,000 pts asegurados)";
@@ -556,8 +580,395 @@ function finishGame(wonAll) {
   }
 }
 
-function toggleSound() {
-  const active = sound.toggle();
-  const btn = document.getElementById('btn-sound');
-  btn.textContent = active ? '🔊 Sonido: ON' : '🔇 Sonido: OFF';
+// ============================================================================
+// JUEGO 2: BATALLA DE LOS 4 GRUPOS (GRUPOS A, B, C y D) - 16 PREGUNTAS
+// Reglas:
+// - Empieza preguntándole al Grupo A con 1 minuto (60 s) para contestar.
+// - Pasado el minuto, la respuesta se considera errónea.
+// - Solo pasa al siguiente grupo (A → B → C → D → A) si:
+//     1) La respuesta es errónea o se agota el minuto (pasa en REBOTE al siguiente grupo).
+//     2) O si responde 4 seguidas bien (+200 pts extra y pasa el turno al siguiente grupo).
+// - Total: 16 preguntas (4 Rondas de 4 preguntas).
+// ============================================================================
+let groupsData = [
+  { id: 'A', name: 'Grupo A', score: 0, streak: 0, correctCount: 0 },
+  { id: 'B', name: 'Grupo B', score: 0, streak: 0, correctCount: 0 },
+  { id: 'C', name: 'Grupo C', score: 0, streak: 0, correctCount: 0 },
+  { id: 'D', name: 'Grupo D', score: 0, streak: 0, correctCount: 0 }
+];
+
+let activeGroupIdx = 0; // 0=A, 1=B, 2=C, 3=D
+let groupQuestionIdx = 0; // 0..15 (16 preguntas)
+let groupTimerInterval = null;
+let groupSecondsLeft = 60;
+let groupTimerPaused = false;
+let groupWaitingTransition = false;
+let failedGroupsForCurrentQ = 0;
+let disabledOptionsForCurrentQ = [];
+
+function openGroupsSetup() {
+  stopGroupTimer();
+  hideAllViews();
+  document.getElementById('groups-setup-view').classList.add('active');
+}
+
+function startGroupsGame() {
+  const nameA = document.getElementById('input-group-a').value.trim() || 'Grupo A';
+  const nameB = document.getElementById('input-group-b').value.trim() || 'Grupo B';
+  const nameC = document.getElementById('input-group-c').value.trim() || 'Grupo C';
+  const nameD = document.getElementById('input-group-d').value.trim() || 'Grupo D';
+
+  groupsData = [
+    { id: 'A', name: nameA, score: 0, streak: 0, correctCount: 0 },
+    { id: 'B', name: nameB, score: 0, streak: 0, correctCount: 0 },
+    { id: 'C', name: nameC, score: 0, streak: 0, correctCount: 0 },
+    { id: 'D', name: nameD, score: 0, streak: 0, correctCount: 0 }
+  ];
+
+  activeGroupIdx = 0; // Empieza preguntándole al Grupo A
+  groupQuestionIdx = 0;
+
+  hideAllViews();
+  document.getElementById('groups-game-view').classList.add('active');
+
+  loadGroupQuestion(false);
+}
+
+function renderGroupsScoreboard() {
+  const board = document.getElementById('groups-scoreboard');
+  board.innerHTML = '';
+
+  groupsData.forEach((grp, idx) => {
+    const isTurn = idx === activeGroupIdx;
+    const card = document.createElement('div');
+    card.className = `group-card ${isTurn ? 'active-turn' : ''}`;
+
+    let dotsHtml = '';
+    for (let i = 1; i <= 4; i++) {
+      dotsHtml += `<span class="streak-dot ${i <= grp.streak ? 'filled' : ''}"></span>`;
+    }
+
+    card.innerHTML = `
+      <span class="group-turn-badge">⚡ TURNO ACTUAL</span>
+      <div class="group-header">
+        <span class="group-name">${grp.name}</span>
+        <span class="group-score">${grp.score} pts</span>
+      </div>
+      <div class="group-streak">
+        <span>Racha seguidas (${grp.streak}/4):</span>
+        <div class="streak-dots">${dotsHtml}</div>
+      </div>
+    `;
+    board.appendChild(card);
+  });
+}
+
+function loadGroupQuestion(isRebound = false) {
+  groupWaitingTransition = false;
+  if (!isRebound) {
+    failedGroupsForCurrentQ = 0;
+    disabledOptionsForCurrentQ = [];
+  }
+
+  const qData = QUESTIONS_DB[groupQuestionIdx];
+  const currentRound = Math.floor(groupQuestionIdx / 4) + 1;
+  const currentGroup = groupsData[activeGroupIdx];
+
+  sound.playQuestionStart();
+  renderGroupsScoreboard();
+
+  document.getElementById('group-round-label').textContent =
+    `RONDA ${currentRound} DE 4 • MÚLTIPLO DE 4 (16 PREGUNTAS)`;
+  document.getElementById('group-question-counter').textContent =
+    `Pregunta ${groupQuestionIdx + 1} de ${QUESTIONS_DB.length}`;
+
+  const bannerEl = document.getElementById('active-group-banner');
+  if (isRebound) {
+    bannerEl.innerHTML = `🔄 <strong>REBOTE PARA: ${currentGroup.name.toUpperCase()}</strong> (Racha: ${currentGroup.streak}/4)`;
+  } else {
+    bannerEl.innerHTML = `🎯 <strong>PREGUNTA PARA: ${currentGroup.name.toUpperCase()}</strong> (Racha: ${currentGroup.streak}/4)`;
+  }
+
+  document.getElementById('group-question-category').textContent = qData.category;
+  document.getElementById('group-question-text').textContent = qData.question;
+
+  // Ocultar caja de explicación/transición
+  document.getElementById('group-explanation-box').classList.remove('visible');
+
+  // Renderizar opciones A, B, C, D respetando las ya descartadas en rebote
+  const letters = ['A', 'B', 'C', 'D'];
+  const optionsGrid = document.getElementById('group-options-grid');
+  optionsGrid.innerHTML = '';
+
+  qData.options.forEach((optText, idx) => {
+    const btn = document.createElement('button');
+    btn.className = 'option-btn';
+    btn.id = `grp-opt-btn-${idx}`;
+
+    if (disabledOptionsForCurrentQ.includes(idx)) {
+      btn.classList.add('wrong');
+      btn.disabled = true;
+    } else {
+      btn.onclick = () => handleGroupAnswer(idx);
+    }
+
+    btn.innerHTML = `
+      <span class="option-letter">${letters[idx]}:</span>
+      <span class="option-text">${optText}</span>
+    `;
+    optionsGrid.appendChild(btn);
+  });
+
+  startGroupTimer();
+}
+
+function startGroupTimer() {
+  stopGroupTimer();
+  groupSecondsLeft = 60; // 1 minuto exacto
+  groupTimerPaused = false;
+
+  const pauseBtn = document.getElementById('btn-pause-timer');
+  if (pauseBtn) pauseBtn.textContent = '⏸️ Pausar 1:00';
+
+  updateTimerUI();
+
+  groupTimerInterval = setInterval(() => {
+    if (groupTimerPaused || groupWaitingTransition) return;
+
+    groupSecondsLeft--;
+    if (groupSecondsLeft <= 10 && groupSecondsLeft > 0) {
+      sound.playTick();
+    }
+    updateTimerUI();
+
+    if (groupSecondsLeft <= 0) {
+      stopGroupTimer();
+      handleGroupTimeout();
+    }
+  }, 1000);
+}
+
+function stopGroupTimer() {
+  if (groupTimerInterval) {
+    clearInterval(groupTimerInterval);
+    groupTimerInterval = null;
+  }
+}
+
+function togglePauseGroupTimer() {
+  if (groupWaitingTransition) return;
+  groupTimerPaused = !groupTimerPaused;
+  const pauseBtn = document.getElementById('btn-pause-timer');
+  pauseBtn.textContent = groupTimerPaused ? '▶️ Reanudar Reloj' : '⏸️ Pausar Reloj';
+}
+
+function updateTimerUI() {
+  const clockEl = document.getElementById('group-timer-clock');
+  const fillEl = document.getElementById('group-timer-fill');
+
+  const mins = Math.floor(groupSecondsLeft / 60);
+  const secs = groupSecondsLeft % 60;
+  clockEl.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+
+  clockEl.classList.remove('warning', 'danger');
+  fillEl.classList.remove('danger');
+
+  if (groupSecondsLeft <= 10) {
+    clockEl.classList.add('danger');
+    fillEl.classList.add('danger');
+  } else if (groupSecondsLeft <= 25) {
+    clockEl.classList.add('warning');
+  }
+
+  const pct = Math.max(0, (groupSecondsLeft / 60) * 100);
+  fillEl.style.width = `${pct}%`;
+}
+
+function disableAllGroupOptionButtons() {
+  for (let i = 0; i < 4; i++) {
+    const btn = document.getElementById(`grp-opt-btn-${i}`);
+    if (btn) btn.disabled = true;
+  }
+}
+
+function handleGroupTimeout() {
+  if (groupWaitingTransition) return;
+  groupWaitingTransition = true;
+  sound.playWrong();
+  disableAllGroupOptionButtons();
+
+  const failingGroup = groupsData[activeGroupIdx];
+  failingGroup.streak = 0; // Pierde la racha
+  failedGroupsForCurrentQ++;
+
+  const nextGroupIdx = (activeGroupIdx + 1) % 4;
+  const nextGroup = groupsData[nextGroupIdx];
+
+  const expBox = document.getElementById('group-explanation-box');
+  const statusEl = document.getElementById('group-explanation-status');
+  const refEl = document.getElementById('group-explanation-ref');
+  const textEl = document.getElementById('group-explanation-text');
+  const nextBtn = document.getElementById('btn-group-next');
+
+  const qData = QUESTIONS_DB[groupQuestionIdx];
+
+  if (failedGroupsForCurrentQ < 4) {
+    // Pasa al siguiente grupo en rebote con un nuevo minuto
+    statusEl.textContent = `⏰ ¡TIEMPO AGOTADO (1:00)! Respuesta errónea para ${failingGroup.name}`;
+    statusEl.className = 'explanation-status status-rebound';
+    refEl.textContent = `Turno pasa a ${nextGroup.name}`;
+    textEl.textContent = `Se cumplió el minuto sin respuesta válida. La racha de ${failingGroup.name} vuelve a 0 y el turno pasa inmediatamente a ${nextGroup.name} con 1 minuto para responder.`;
+
+    nextBtn.textContent = `👉 Pasar turno a ${nextGroup.name} (Iniciar 1:00) →`;
+    nextBtn.onclick = () => {
+      activeGroupIdx = nextGroupIdx;
+      loadGroupQuestion(true);
+    };
+  } else {
+    // Los 4 grupos fallaron la misma pregunta
+    const correctBtn = document.getElementById(`grp-opt-btn-${qData.correct}`);
+    if (correctBtn) correctBtn.classList.add('correct');
+
+    statusEl.textContent = `⏰ ¡TIEMPO AGOTADO! Ningún grupo acertó esta pregunta`;
+    statusEl.className = 'explanation-status status-fail';
+    refEl.textContent = qData.reference;
+    textEl.textContent = qData.explanation;
+
+    setupAdvanceToNextGroupQuestion(nextGroupIdx, nextBtn);
+  }
+
+  renderGroupsScoreboard();
+  expBox.classList.add('visible');
+}
+
+function handleGroupAnswer(selectedIndex) {
+  if (groupWaitingTransition) return;
+  groupWaitingTransition = true;
+  stopGroupTimer();
+  disableAllGroupOptionButtons();
+
+  const qData = QUESTIONS_DB[groupQuestionIdx];
+  const currentGroup = groupsData[activeGroupIdx];
+  const isCorrect = selectedIndex === qData.correct;
+
+  const expBox = document.getElementById('group-explanation-box');
+  const statusEl = document.getElementById('group-explanation-status');
+  const refEl = document.getElementById('group-explanation-ref');
+  const textEl = document.getElementById('group-explanation-text');
+  const nextBtn = document.getElementById('btn-group-next');
+
+  if (isCorrect) {
+    sound.playCorrect();
+    const selectedBtn = document.getElementById(`grp-opt-btn-${selectedIndex}`);
+    if (selectedBtn) selectedBtn.classList.add('correct');
+
+    currentGroup.score += 100;
+    currentGroup.correctCount += 1;
+    currentGroup.streak += 1;
+
+    refEl.textContent = qData.reference;
+
+    // Verificar si completó 4 seguidas bien
+    if (currentGroup.streak >= 4) {
+      sound.playVictory();
+      currentGroup.score += 200; // Bonificación por 4 seguidas
+      currentGroup.streak = 0; // Reinicia ciclo de 4 para el grupo
+      const nextGroupIdx = (activeGroupIdx + 1) % 4;
+      const nextGroup = groupsData[nextGroupIdx];
+
+      statusEl.textContent = `🔥 ¡4 SEGUIDAS BIEN DE ${currentGroup.name.toUpperCase()}! (+100 pts + 200 pts Bono) • Turno pasa a ${nextGroup.name}`;
+      statusEl.className = 'explanation-status status-ok';
+      textEl.textContent = `${qData.explanation} — ¡${currentGroup.name} respondió 4 preguntas seguidas correctamente! Por regla del juego, ahora el turno pasa a ${nextGroup.name}.`;
+
+      setupAdvanceToNextGroupQuestion(nextGroupIdx, nextBtn);
+    } else {
+      // Mantiene su turno porque aún no llega a 4 seguidas
+      statusEl.textContent = `✅ ¡CORRECTO ${currentGroup.name.toUpperCase()}! (+100 pts) • Racha: ${currentGroup.streak}/4 seguidas (Conserva el turno)`;
+      statusEl.className = 'explanation-status status-ok';
+      textEl.textContent = qData.explanation;
+
+      setupAdvanceToNextGroupQuestion(activeGroupIdx, nextBtn);
+    }
+  } else {
+    // Respuesta errónea -> pasa al siguiente grupo
+    sound.playWrong();
+    const wrongBtn = document.getElementById(`grp-opt-btn-${selectedIndex}`);
+    if (wrongBtn) wrongBtn.classList.add('wrong');
+
+    disabledOptionsForCurrentQ.push(selectedIndex);
+    currentGroup.streak = 0;
+    failedGroupsForCurrentQ++;
+
+    const nextGroupIdx = (activeGroupIdx + 1) % 4;
+    const nextGroup = groupsData[nextGroupIdx];
+
+    if (failedGroupsForCurrentQ < 4) {
+      statusEl.textContent = `❌ RESPUESTA ERRÓNEA DE ${currentGroup.name.toUpperCase()} • El turno pasa a ${nextGroup.name}`;
+      statusEl.className = 'explanation-status status-rebound';
+      refEl.textContent = `Rebote para ${nextGroup.name}`;
+      textEl.textContent = `${currentGroup.name} ha fallado y pierde su racha. El turno pasa a ${nextGroup.name} con 1 minuto (60 s) para responder esta pregunta.`;
+
+      nextBtn.textContent = `👉 Pasar turno a ${nextGroup.name} (Iniciar 1:00) →`;
+      nextBtn.onclick = () => {
+        activeGroupIdx = nextGroupIdx;
+        loadGroupQuestion(true);
+      };
+    } else {
+      // Los 4 grupos fallaron
+      const correctBtn = document.getElementById(`grp-opt-btn-${qData.correct}`);
+      if (correctBtn) correctBtn.classList.add('correct');
+
+      statusEl.textContent = `❌ Los 4 grupos fallaron esta pregunta`;
+      statusEl.className = 'explanation-status status-fail';
+      refEl.textContent = qData.reference;
+      textEl.textContent = qData.explanation;
+
+      setupAdvanceToNextGroupQuestion(nextGroupIdx, nextBtn);
+    }
+  }
+
+  renderGroupsScoreboard();
+  expBox.classList.add('visible');
+}
+
+function setupAdvanceToNextGroupQuestion(nextTurnGroupIdx, nextBtn) {
+  if (groupQuestionIdx >= QUESTIONS_DB.length - 1) {
+    nextBtn.textContent = '🏆 Ver Podio Final de los 4 Grupos';
+    nextBtn.onclick = () => finishGroupsGame();
+  } else {
+    const nextGroupName = groupsData[nextTurnGroupIdx].name;
+    nextBtn.textContent = `Siguiente Pregunta (${groupQuestionIdx + 2}/16 • Turno: ${nextGroupName}) →`;
+    nextBtn.onclick = () => {
+      activeGroupIdx = nextTurnGroupIdx;
+      groupQuestionIdx++;
+      loadGroupQuestion(false);
+    };
+  }
+}
+
+function finishGroupsGame() {
+  stopGroupTimer();
+  hideAllViews();
+  document.getElementById('groups-result-view').classList.add('active');
+  sound.playVictory();
+
+  const sorted = [...groupsData].sort((a, b) => b.score - a.score || b.correctCount - a.correctCount);
+  const winner = sorted[0];
+
+  document.getElementById('groups-winner-title').textContent =
+    `🏆 ¡Ganador: ${winner.name} con ${winner.score} pts!`;
+
+  const podiumEl = document.getElementById('groups-podium-list');
+  podiumEl.innerHTML = '';
+
+  const medals = ['🥇 1.° Lugar', '🥈 2.° Lugar', '🥉 3.° Lugar', '🎖️ 4.° Lugar'];
+  sorted.forEach((grp, idx) => {
+    const item = document.createElement('div');
+    item.className = `podium-item ${idx === 0 ? 'first-place' : ''}`;
+    item.innerHTML = `
+      <span>${medals[idx]} — <strong>${grp.name}</strong> (${grp.correctCount} aciertos)</span>
+      <span style="color: var(--gold-primary); font-weight: 900;">${grp.score} pts</span>
+    `;
+    podiumEl.appendChild(item);
+  });
 }

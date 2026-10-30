@@ -29,44 +29,68 @@
   <!-- ==================================================================== -->
   <main id="portal-view" class="view-section active">
     <section class="hero-banner">
-      <span class="hero-badge">JOYAS DEL LIBRO DE DANIEL • JUEGO #1</span>
-      <h2>Capítulo 1: Fidelidad Inquebrantable en la Corte de Babilonia</h2>
+      <span class="hero-badge">JOYAS DEL LIBRO DE DANIEL • CAPÍTULO 1</span>
+      <h2>Fidelidad Inquebrantable en la Corte de Babilonia</h2>
       <p>
-        Pon a prueba tus conocimientos sobre el asedio de Jerusalén (606 a.C.), la guerra espiritual
+        Elige el modo de juego para estudiar el asedio de Jerusalén (606 a.C.), la guerra espiritual
         por la identidad, el rechazo a la ración del rey (Daniel 1:8), la prueba de los 10 días y
-        los consejos del Espíritu de Profecía en un desafío estilo <strong>¿Quién quiere ser Millonario?</strong>
+        los consejos del Espíritu de Profecía.
       </p>
-      <button class="btn-primary" onclick="startGame()">
-        ▶ Jugar Ahora: Desafío «10 Veces Mejor»
-      </button>
+      <div class="hero-buttons">
+        <button class="btn-primary" onclick="startGame()">
+          ▶ Juego 1: Modo Millonario (Individual)
+        </button>
+        <button class="btn-secondary-gold" onclick="openGroupsSetup()">
+          👥 Juego 2: Batalla de 4 Grupos (A, B, C y D • 1 Minuto)
+        </button>
+      </div>
     </section>
 
     <h3 class="section-title">💎 Selección de Juegos Proféticos</h3>
 
     <div class="games-grid">
-      <!-- JUEGO 1: ACTIVO -->
+      <!-- JUEGO 1: MILLONARIO INDIVIDUAL -->
       <article class="game-card featured">
         <div>
-          <div class="card-tag">DISPONIBLE AHORA • FORMATO MILLONARIO</div>
-          <h3>Daniel 1: Victoria sobre la Apostasía</h3>
+          <div class="card-tag">JUEGO #1 • FORMATO MILLONARIO</div>
+          <h3>Daniel 1: ¿Quién quiere ser «10 Veces Mejor»?</h3>
           <p>
             15 preguntas progresivas desde el sitio de Jerusalén hasta el examen final ante Nabucodonosor.
-            Incluye 3 comodines y explicación profética en cada respuesta.
+            Incluye 3 comodines (50:50, Consultar al Profeta y Sabios de Judá) y explicación profética.
           </p>
           <div class="card-topics">
-            <span class="topic-pill">Asedio 606 a.C.</span>
-            <span class="topic-pill">Nombres Hebreos vs Babilónicos</span>
-            <span class="topic-pill">Daniel 1:8</span>
-            <span class="topic-pill">Prueba de 10 Días</span>
-            <span class="topic-pill">Reforma Pro Salud</span>
+            <span class="topic-pill">15 Niveles</span>
+            <span class="topic-pill">3 Comodines</span>
+            <span class="topic-pill">Explicación Bíblica</span>
           </div>
         </div>
         <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="startGame()">
-          🎯 Iniciar Juego (15 Preguntas)
+          🎯 Jugar Modo Millonario
         </button>
       </article>
 
-      <!-- PRÓXIMO JUEGO 2 -->
+      <!-- JUEGO 2: BATALLA DE 4 GRUPOS (A, B, C, D) -->
+      <article class="game-card featured">
+        <div>
+          <div class="card-tag">JUEGO #2 • 4 GRUPOS (A, B, C y D)</div>
+          <h3>Daniel 1: Desafío por Equipos (Racha de 4 y 1 Minuto)</h3>
+          <p>
+            16 preguntas (múltiplo de 4: 4 rondas). Inicia el <strong>Grupo A</strong> con <strong>1 minuto (60 s)</strong>.
+            Pasado el minuto es errónea. Solo pasa al siguiente grupo si falla (rebote) o si responde <strong>4 seguidas bien</strong>.
+          </p>
+          <div class="card-topics">
+            <span class="topic-pill">Grupos A, B, C y D</span>
+            <span class="topic-pill">Reloj 1 Minuto</span>
+            <span class="topic-pill">Racha de 4 Seguidas</span>
+            <span class="topic-pill">16 Preguntas (4x4)</span>
+          </div>
+        </div>
+        <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="openGroupsSetup()">
+          👥 Iniciar Juego de 4 Grupos
+        </button>
+      </article>
+
+      <!-- PRÓXIMO JUEGO 3 -->
       <article class="game-card locked">
         <div>
           <div class="card-tag">PRÓXIMAMENTE • CAPÍTULO 2</div>
@@ -77,26 +101,7 @@
           <div class="card-topics">
             <span class="topic-pill">Cabeza de Oro</span>
             <span class="topic-pill">Imperios Mundiales</span>
-            <span class="topic-pill">La Piedra no cortada con manos</span>
-          </div>
-        </div>
-        <button class="btn-icon" style="width: 100%; justify-content: center;" disabled>
-          🔒 Próximo Estudio Profético
-        </button>
-      </article>
-
-      <!-- PRÓXIMO JUEGO 3 -->
-      <article class="game-card locked">
-        <div>
-          <div class="card-tag">PRÓXIMAMENTE • CAPÍTULO 3</div>
-          <h3>Daniel 3: El Horno de Fuego Ardiente</h3>
-          <p>
-            Fidelidad ante el decreto de muerte en la llanura de Dura y la defensa del sábado y la adoración al único Dios verdadero.
-          </p>
-          <div class="card-topics">
-            <span class="topic-pill">Estatua de Oro</span>
-            <span class="topic-pill">Fidelidad en la Prueba</span>
-            <span class="topic-pill">El Cuarto Varón</span>
+            <span class="topic-pill">La Piedra Eterna</span>
           </div>
         </div>
         <button class="btn-icon" style="width: 100%; justify-content: center;" disabled>
@@ -151,7 +156,7 @@
   </main>
 
   <!-- ==================================================================== -->
-  <!-- VISTA 2: JUEGO ESTILO ¿QUIÉN QUIERE SER MILLONARIO?                  -->
+  <!-- VISTA 2: JUEGO 1 - ESTILO ¿QUIÉN QUIERE SER MILLONARIO?              -->
   <!-- ==================================================================== -->
   <section id="game-view" class="view-section">
     <div class="millionaire-layout">
@@ -216,7 +221,7 @@
   </section>
 
   <!-- ==================================================================== -->
-  <!-- VISTA 3: PANTALLA DE RESULTADO FINAL                                 -->
+  <!-- VISTA 3: RESULTADO JUEGO 1 (MILLONARIO INDIVIDUAL)                   -->
   <!-- ==================================================================== -->
   <section id="result-view" class="view-section">
     <div class="stage-panel result-card">
@@ -226,6 +231,140 @@
       <blockquote class="result-quote" id="result-quote"></blockquote>
       <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
         <button class="btn-primary" onclick="startGame()">🔄 Jugar de Nuevo</button>
+        <button class="btn-icon" onclick="showPortal()">🏛️ Volver al Portal de Juegos</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================== -->
+  <!-- VISTA 4: CONFIGURACIÓN DEL JUEGO 2 (4 GRUPOS A, B, C y D)            -->
+  <!-- ==================================================================== -->
+  <section id="groups-setup-view" class="view-section">
+    <div class="setup-panel">
+      <span class="hero-badge">JUEGO #2 • MODO POR EQUIPOS</span>
+      <h2 style="font-size: 1.8rem; margin-bottom: 0.75rem;">Batalla Profética de los 4 Grupos (A, B, C y D)</h2>
+
+      <div class="rules-summary">
+        <strong>📋 Reglas Oficiales de la Partida:</strong>
+        <ul>
+          <li><strong>16 Preguntas en total (Múltiplo de 4):</strong> Divididas en 4 rondas de 4 preguntas.</li>
+          <li><strong>Inicio y Reloj de 1 Minuto:</strong> Empieza preguntándole al <strong>Grupo A</strong> con <strong>1 minuto (60 s)</strong> para contestar. Pasado el minuto, la respuesta se marca como errónea.</li>
+          <li><strong>Cambio de Turno:</strong> Solo pasará al siguiente grupo (A → B → C → D → A) si:
+            <br>1️⃣ La respuesta es <strong>errónea</strong> o se acaba el minuto (pasa en rebote al siguiente grupo).
+            <br>2️⃣ El grupo responde <strong>4 seguidas bien</strong> (recibe <strong>+200 pts extra</strong> de bono y cede el turno al siguiente grupo).
+          </li>
+        </ul>
+      </div>
+
+      <p style="color: var(--text-muted); font-size: 0.9rem;">
+        Puedes dejar los nombres como <strong>Grupo A, B, C y D</strong> o personalizarlos para tu iglesia/grupo de estudio:
+      </p>
+
+      <div class="setup-grid">
+        <div class="setup-field">
+          <label for="input-group-a">Equipo 1 (Inicia la partida)</label>
+          <input type="text" id="input-group-a" value="Grupo A" />
+        </div>
+        <div class="setup-field">
+          <label for="input-group-b">Equipo 2</label>
+          <input type="text" id="input-group-b" value="Grupo B" />
+        </div>
+        <div class="setup-field">
+          <label for="input-group-c">Equipo 3</label>
+          <input type="text" id="input-group-c" value="Grupo C" />
+        </div>
+        <div class="setup-field">
+          <label for="input-group-d">Equipo 4</label>
+          <input type="text" id="input-group-d" value="Grupo D" />
+        </div>
+      </div>
+
+      <div style="display: flex; gap: 1rem; justify-content: flex-end; flex-wrap: wrap;">
+        <button class="btn-icon" onclick="showPortal()">Cancelar</button>
+        <button class="btn-primary" onclick="startGroupsGame()">
+          🚀 Comenzar Partida con el Grupo A (1:00)
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================== -->
+  <!-- VISTA 5: TABLERO ACTIVO JUEGO 2 (4 GRUPOS A, B, C y D)               -->
+  <!-- ==================================================================== -->
+  <section id="groups-game-view" class="view-section">
+    <!-- MARCADOR DE LOS 4 GRUPOS -->
+    <div class="groups-scoreboard" id="groups-scoreboard"></div>
+
+    <!-- PANEL CENTRAL DE PREGUNTA Y RELOJ DE 1 MINUTO -->
+    <div class="stage-panel">
+      <div class="stage-top-bar">
+        <div class="level-indicator">
+          <span class="chapter-label" id="group-round-label">RONDA 1 DE 4 • MÚLTIPLO DE 4</span>
+          <span class="question-counter" id="group-question-counter">Pregunta 1 de 16</span>
+        </div>
+        <div>
+          <button class="btn-icon" onclick="openGroupsSetup()">⚙️ Reiniciar Grupos</button>
+        </div>
+      </div>
+
+      <!-- BARRA DEL TEMPORIZADOR DE 1 MINUTO (60 SEGUNDOS) -->
+      <div class="timer-bar-wrapper">
+        <div class="timer-top-row">
+          <div class="active-group-banner" id="active-group-banner">
+            🎯 PREGUNTA PARA: GRUPO A
+          </div>
+          <div class="timer-controls">
+            <button class="btn-icon" id="btn-pause-timer" onclick="togglePauseGroupTimer()">
+              ⏸️ Pausar Reloj
+            </button>
+            <div class="timer-clock" id="group-timer-clock">01:00</div>
+          </div>
+        </div>
+        <div class="timer-progress-track">
+          <div class="timer-progress-fill" id="group-timer-fill"></div>
+        </div>
+      </div>
+
+      <!-- PREGUNTA -->
+      <div class="question-container">
+        <span class="question-category" id="group-question-category">Categoría</span>
+        <div class="question-text" id="group-question-text">Cargando pregunta...</div>
+      </div>
+
+      <!-- OPCIONES A, B, C, D -->
+      <div class="options-grid" id="group-options-grid"></div>
+
+      <!-- EXPLICACIÓN / AVISO DE CAMBIO DE GRUPO -->
+      <div class="explanation-box" id="group-explanation-box">
+        <div class="explanation-header">
+          <span class="explanation-status" id="group-explanation-status"></span>
+          <span class="explanation-ref" id="group-explanation-ref"></span>
+        </div>
+        <p class="explanation-text" id="group-explanation-text"></p>
+        <div class="explanation-actions">
+          <button class="btn-primary" id="btn-group-next">Continuar →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================================================================== -->
+  <!-- VISTA 6: PODIO FINAL DE LOS 4 GRUPOS                                 -->
+  <!-- ==================================================================== -->
+  <section id="groups-result-view" class="view-section">
+    <div class="stage-panel result-card">
+      <div class="result-icon">🏆👑</div>
+      <h2 class="result-title" id="groups-winner-title">¡Partida Finalizada!</h2>
+      <p class="result-subtitle">Clasificación final tras las 4 Rondas (16 preguntas de Daniel Capítulo 1):</p>
+
+      <div class="podium-list" id="groups-podium-list"></div>
+
+      <blockquote class="result-quote">
+        «Así como Dios llamó a Daniel para que testificase por él en Babilonia, nos llama hoy a nosotros para que seamos sus testigos en el mundo.» — Elena G. de White, Profetas y Reyes, p. 358
+      </blockquote>
+
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <button class="btn-primary" onclick="openGroupsSetup()">🔄 Jugar Otra Partida de 4 Grupos</button>
         <button class="btn-icon" onclick="showPortal()">🏛️ Volver al Portal de Juegos</button>
       </div>
     </div>
