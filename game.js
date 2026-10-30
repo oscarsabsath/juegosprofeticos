@@ -1,28 +1,32 @@
 // ============================================================================
-// JUEGOS PROFÉTICOS - JOYAS DEL LIBRO DE DANIEL (CAPÍTULO 1)
-// Basado fielmente en la presentación: "Estudio Profético • Un Ancla Inmutable"
+// JUEGOS PROFÉTICOS - DANIEL CAPÍTULO 1 Y DANIEL CAPÍTULO 2
+// - Daniel 1: "Joyas del Libro de Daniel: Fidelidad en la Corte de Babilonia"
+// - Daniel 2: "La Gran Cadena Profética - Estudio #1: El Fundamento de la
+//              Cadena Profética" (Pastor Esteban Bohr | SecretsUnsealed.org)
 // ============================================================================
 
 const LADDER_LEVELS = [
-  { level: 1,  title: "Cautivo en marcha",                gem: "100 pts",   milestone: false },
+  { level: 1,  title: "Buscador de la Verdad",            gem: "100 pts",   milestone: false },
   { level: 2,  title: "Guardián de la Memoria",           gem: "200 pts",   milestone: false },
-  { level: 3,  title: "Estudiante en Babilonia",          gem: "300 pts",   milestone: false },
+  { level: 3,  title: "Estudiante de la Profecía",        gem: "300 pts",   milestone: false },
   { level: 4,  title: "Defensor de su Identidad",         gem: "500 pts",   milestone: false },
-  { level: 5,  title: "Fiel en la Prueba (10 Días)",      gem: "1,000 pts", milestone: true  },
+  { level: 5,  title: "Fiel en la Prueba (Nivel Seguro)", gem: "1,000 pts", milestone: true  },
   { level: 6,  title: "Propósito de Corazón",             gem: "2,000 pts", milestone: false },
-  { level: 7,  title: "Vencedor del Banquete",            gem: "4,000 pts", milestone: false },
+  { level: 7,  title: "Intérprete de los Símbolos",       gem: "4,000 pts", milestone: false },
   { level: 8,  title: "Mente Lúcida y Pura",              gem: "8,000 pts", milestone: false },
   { level: 9,  title: "Hijo del Dios Vivo",               gem: "16,000 pts", milestone: false },
-  { level: 10, title: "Sabio de Judá",                    gem: "32,000 pts", milestone: true  },
+  { level: 10, title: "Sabio de Judá (Nivel Seguro)",     gem: "32,000 pts", milestone: true  },
   { level: 11, title: "Guardián del Sábado",              gem: "64,000 pts", milestone: false },
-  { level: 12, title: "Dominio Propio",                   gem: "125,000 pts", milestone: false },
+  { level: 12, title: "Columna de la Verdad",             gem: "125,000 pts", milestone: false },
   { level: 13, title: "Luz ante los Reyes",               gem: "250,000 pts", milestone: false },
   { level: 14, title: "Testigo del Tiempo del Fin",       gem: "500,000 pts", milestone: false },
-  { level: 15, title: "10 Veces Mejor • Ancla Inmutable", gem: "1,000,000", milestone: true }
+  { level: 15, title: "10 Veces Mejor • Roca Eterna",     gem: "1,000,000", milestone: true }
 ];
 
-// 16 PREGUNTAS (Múltiplo exacto de 4: 4 Rondas de 4 preguntas)
-const QUESTIONS_DB = [
+// ============================================================================
+// BASE DE DATOS CAPÍTULO 1: 16 PREGUNTAS (Múltiplo de 4: 4 Rondas de 4)
+// ============================================================================
+const QUESTIONS_DAN1 = [
   {
     category: "Contexto Histórico",
     question: "Según la presentación sobre el Asedio de Jerusalén, ¿en qué año ocurrió este suceso histórico permitido por Dios?",
@@ -34,7 +38,7 @@ const QUESTIONS_DB = [
     ],
     correct: 1,
     prophetHint: "Pista Profética: Fue a finales del siglo VII a.C., marcando el inicio del cautiverio de Daniel y sus compañeros (606 a.C.).",
-    reference: "Contexto Histórico (606 a.C.)",
+    reference: "Daniel 1 • Contexto Histórico (606 a.C.)",
     explanation: "En el año 606 a.C., Nabucodonosor sitió Jerusalén. Dios permitió su éxito debido a que Judá ignoró las constantes advertencias proféticas."
   },
   {
@@ -249,8 +253,259 @@ const QUESTIONS_DB = [
   }
 ];
 
-// Para el juego individual de 15 escalones usamos 15 preguntas
-const SOLO_QUESTIONS = QUESTIONS_DB.filter((_, idx) => idx !== 4);
+// ============================================================================
+// BASE DE DATOS CAPÍTULO 2: 16 PREGUNTAS (Múltiplo de 4: 4 Rondas de 4)
+// Documento: "La Gran Cadena Profética - Estudio #1: El Fundamento de la
+//             Cadena Profética" (Pastor Esteban Bohr, págs. 3 a 11)
+// ============================================================================
+const QUESTIONS_DAN2 = [
+  {
+    category: "La Trama de Daniel 2",
+    question: "Según Daniel 2:1 y 2:29, ¿en qué año de su reinado tuvo Nabucodonosor el sueño y en qué estaba pensando al acostarse?",
+    options: [
+      "En el primer año, pensando en construir los jardines colgantes",
+      "En el segundo año de su reinado, pensando en lo que había de ser en el porvenir (el futuro de su reino)",
+      "En el séptimo año, pensando en invadir Egipto",
+      "En el décimo año, pensando en levantar una estatua en Dura"
+    ],
+    correct: 1,
+    prophetHint: "Pista Profética: Daniel 2:1 menciona el año exacto del reinado y Daniel 2:29 dice: «te vinieron pensamientos por saber lo que había de ser en lo por venir».",
+    reference: "Estudio #1 (pág. 3) • Daniel 2:1, 29",
+    explanation: "En el segundo año de su reinado, cuando Nabucodonosor se acostó pensando en el futuro de su reino, Dios leyó sus pensamientos y le dio un sueño profético."
+  },
+  {
+    category: "Propósito Divino",
+    question: "Según el estudio del Pastor Esteban Bohr, ¿qué propósito tenía Dios al hacerle olvidar el sueño al rey Nabucodonosor?",
+    options: [
+      "Castigar la falta de memoria del rey babilónico",
+      "Desenmascarar a los sabios, magos, astrólogos y adivinos de la religión falsa de Babilonia",
+      "Dar tiempo al ejército medo-persa para acercarse a la ciudad",
+      "Obligar al rey a escribir un libro de astronomía caldea"
+    ],
+    correct: 1,
+    prophetHint: "Pista Profética: En la página 3 se afirma: «Dios tenía un propósito en velarle el sueño al rey Nabucodonosor: Dios desenmascaró a los de la religión falsa de Babilonia».",
+    reference: "Estudio #1 (pág. 3) • Daniel 2:2, 3",
+    explanation: "Al hacerle olvidar el sueño, Dios desenmascaró el fraude de los magos, astrólogos, encantadores y caldeos de la religión falsa de Babilonia."
+  },
+  {
+    category: "Dioses Paganos vs. el Dios Vivo",
+    question: "En Daniel 2:11 los caldeos dijeron que los dioses «no moran con la carne». ¿Qué texto bíblico cita el estudio para demostrar que el Dios verdadero SÍ se revela y habitó con la carne?",
+    options: [
+      "Juan 1:14 («Aquel Verbo llegó a ser carne y habitó entre nosotros»)",
+      "Éxodo 15:1 («Cantaré yo a Jehová porque se ha magnificado»)",
+      "Salmo 23:1 («Jehová es mi pastor, nada me faltará»)",
+      "Proverbios 3:5 («Fíate de Jehová de todo tu corazón»)"
+    ],
+    correct: 0,
+    prophetHint: "Pista Profética: Es el famoso versículo del capítulo 1 del Evangelio de Juan sobre la encarnación del Verbo.",
+    reference: "Estudio #1 (pág. 4) • Daniel 2:11 y Juan 1:14",
+    explanation: "Mientras los dioses paganos guardan secretos y no moran con la carne (Daniel 2:11), el Dios de la Biblia no se oculta, sino que el Verbo se hizo carne y habitó entre nosotros (Juan 1:14)."
+  },
+  {
+    category: "Oración y Revelación",
+    question: "Cuando el rey mandó matar a todos los sabios (Daniel 2:12-13), ¿qué hizo Daniel con Ananías, Misael y Azarías y qué texto declara que Dios revela Su secreto a los profetas?",
+    options: [
+      "Consultaron los astros caldeos y citaron Ezequiel 1:1",
+      "Oraron pidiendo misericordias del Dios del cielo (Daniel 2:17-18), cumpliéndose Amós 3:7",
+      "Huyeron al desierto de Judea y citaron Isaías 40:3",
+      "Pidieron ayuda al ejército real y citaron 1 Reyes 18"
+    ],
+    correct: 1,
+    prophetHint: "Pista Profética: Daniel no empleó astrología ni bola de cristal; oró con sus tres amigos, y Amós 3:7 afirma que Jehová revela Su secreto a sus siervos los profetas.",
+    reference: "Estudio #1 (pág. 4) • Daniel 2:17-18 y Amós 3:7",
+    explanation: "Satanás quiso destruirlos mediante el decreto de muerte, pero Daniel y sus amigos oraron al Dios del cielo que conoce el fin desde el principio y revela Su secreto a sus siervos los profetas (Amós 3:7)."
+  },
+  {
+    category: "Método de Interpretación Profética",
+    question: "La gran imagen presenta una secuencia continua de reinos sin paréntesis ni interrupción hasta la Segunda Venida. ¿Cómo se llama este método de interpretación profética predilecto de la Iglesia Adventista?",
+    options: [
+      "Futurismo dispensacionalista",
+      "Preterismo alegórico",
+      "Historicismo",
+      "Idealismo filosófico"
+    ],
+    correct: 2,
+    prophetHint: "Pista Profética: En la página 5 se destaca entre comillas simples el nombre de este método basado en la historia continua.",
+    reference: "Estudio #1 (pág. 5) • El Sueño y el Historicismo",
+    explanation: "El documento subraya: «No hay paréntesis ni interrupción en la secuencia. Este método de interpretar las profecías se conoce como ‘historicismo’ y es el método predilecto de la iglesia Adventista»."
+  },
+  {
+    category: "La Cabeza de Oro y el Pecho de Plata",
+    question: "Según el panorama histórico de Daniel 2 (págs. 6 y 9), ¿qué imperios y fechas exactas representan la Cabeza de Oro y el Pecho y Brazos de Plata?",
+    options: [
+      "Cabeza de Oro: Asiria (722-605 AC) • Pecho de Plata: Egipto (605-525 AC)",
+      "Cabeza de Oro: Babilonia (605-539 AC) • Pecho y Brazos de Plata: Medo Persia (539-331 AC)",
+      "Cabeza de Oro: Babilonia (606-500 AC) • Pecho de Plata: Grecia (500-200 AC)",
+      "Cabeza de Oro: Medo Persia (539-331 AC) • Pecho de Plata: Roma (331-168 AC)"
+    ],
+    correct: 1,
+    prophetHint: "Pista Profética: Babilonia cayó ante Ciro en el 539 AC, y Medo Persia gobernó hasta el 331 AC.",
+    reference: "Estudio #1 (págs. 6 y 9) • Daniel 2:37-39",
+    explanation: "La cabeza de oro representa a Babilonia (605-539 AC) y el pecho y brazos de plata representan a Medo Persia (539-331 AC)."
+  },
+  {
+    category: "El Vientre de Bronce y las Piernas de Hierro",
+    question: "Según el panorama de Daniel 2 (págs. 6 y 9), ¿qué imperios y fechas corresponden al Vientre y Muslos de Bronce y a las Piernas de Hierro?",
+    options: [
+      "Bronce: Grecia (331-168 AC) • Piernas de Hierro: Imperio Romano (168 AC – 476 DC)",
+      "Bronce: Siria (300-100 AC) • Piernas de Hierro: Imperio Otomano (100 AC – 500 DC)",
+      "Bronce: Macedonia (400-200 AC) • Piernas de Hierro: Imperio Franco (200 AC – 800 DC)",
+      "Bronce: Grecia (539-331 AC) • Piernas de Hierro: Roma Papal (538 – 1798 DC)"
+    ],
+    correct: 0,
+    prophetHint: "Pista Profética: Grecia venció en 331 AC hasta 168 AC, cuando el Imperio Romano de hierro dominó hasta la caída del último emperador occidental en 476 DC.",
+    reference: "Estudio #1 (págs. 6 y 9) • Daniel 2:39, 40",
+    explanation: "El vientre de bronce representa a Grecia (331-168 AC) y las piernas de hierro al Imperio Romano (168 AC – 476 DC)."
+  },
+  {
+    category: "Los Diez Dedos y el Barro Añadido",
+    question: "En la cronología del Panorama de Daniel 2 (pág. 9), ¿en qué año se ubica la división del Imperio Romano (Diez Dedos) y en qué año se añade el Barro al Hierro (Roma Papal)?",
+    options: [
+      "Diez Dedos: 330 DC • Se añade el Barro al Hierro: 476 DC",
+      "Diez Dedos: 476 DC (División de Roma) • Se añade el Barro al Hierro: 538 DC (Roma Papal)",
+      "Diez Dedos: 168 AC • Se añade el Barro al Hierro: 313 DC",
+      "Diez Dedos: 538 DC • Se añade el Barro al Hierro: 1798 DC"
+    ],
+    correct: 1,
+    prophetHint: "Pista Profética: Revisa la lista 'El Panorama de Daniel 2' en la página 9 del documento.",
+    reference: "Estudio #1 (pág. 9) • El Panorama de Daniel 2",
+    explanation: "Los Diez Dedos corresponden a la división del Imperio Romano (476 DC) y el Barro añadido al Hierro representa el ascenso de Roma Papal (538 DC)."
+  },
+  {
+    category: "Los Pies de Hierro y Barro",
+    question: "Según la página 6 del estudio, ¿qué significa el hecho de que el hierro ya existía en las piernas antes de aparecer mezclado con barro cocido de alfarero en los pies (Daniel 2:41)?",
+    options: [
+      "Que Babilonia volvería a reconstruirse literalmente en Irak",
+      "Que Roma continúa existiendo en los pies, pero es una Roma amalgamada que mezcla dos elementos que no deben ir juntos",
+      "Que el Imperio Griego seguiría gobernando en secreto",
+      "Que la metalurgia antigua había perdido pureza técnica"
+    ],
+    correct: 1,
+    prophetHint: "Pista Profética: El hierro y el barro son útiles por separado; el problema es cuando se mezclan en una Roma amalgamada.",
+    reference: "Estudio #1 (pág. 6) • Daniel 2:41",
+    explanation: "El hierro en los pies muestra que Roma continúa existiendo hasta el fin, pero como una Roma distinta y amalgamada que mezcla el poder civil con el religioso."
+  },
+  {
+    category: "El Barro según Elena G. de White",
+    question: "Según la cita de Elena G. de White en el Comentario Bíblico Adventista (tomo 7A, p. 178), ¿qué representa la mezcla del barro con el hierro en los pies de la imagen?",
+    options: [
+      "La alianza comercial entre las naciones de Oriente y Occidente",
+      "La mezcla de los asuntos de la Iglesia [el barro] con los del Estado [el hierro], debilitando el poder de las iglesias y apoyando el falso día de reposo",
+      "La construcción de templos con materiales modernos",
+      "La división geográfica de los continentes"
+    ],
+    correct: 1,
+    prophetHint: "Pista Profética: Lee el párrafo subrayado en la página 7: «La mezcla de los asuntos de la Iglesia [el barro] con las del Estado [el hierro] se representa con el hierro y el barro».",
+    reference: "Estudio #1 (pág. 7) • CBA, tomo 7A, p. 178",
+    explanation: "Elena G. de White explica que el barro representa a la iglesia y el hierro al Estado; cuando la iglesia busca el poder político del Estado y se une con el papado para exaltar el falso día de reposo sobre el Sábado, se corrompe."
+  },
+  {
+    category: "Perspectiva de Jeremías y Génesis",
+    question: "¿Qué textos bíblicos del Antiguo y Nuevo Testamento cita el estudio (págs. 7 y 8) para demostrar que el barro de alfarero simboliza al pueblo de Dios / la iglesia como cuerpo de Cristo?",
+    options: [
+      "Jeremías 18:1-6 (casa del alfarero = Israel), Génesis 2:7 / Isaías 64:8 (formados del barro) y Colosenses 1:18 / 1 Corintios 12:12-13 (la iglesia es el cuerpo de Cristo)",
+      "Levítico 11, Números 14 y Deuteronomio 28",
+      "Proverbios 8, Eclesiastés 12 y Cantares 2",
+      "Josué 6, Jueces 7 y 1 Samuel 17"
+    ],
+    correct: 0,
+    prophetHint: "Pista Profética: En las páginas 7 y 8 se analizan 'La Perspectiva de Jeremías', 'La Perspectiva de Génesis 2:7' y 'La Perspectiva de Ezequiel 37'.",
+    reference: "Estudio #1 (págs. 7 y 8) • Jeremías 18:1-6; Isaías 64:8; Colosenses 1:18",
+    explanation: "En Jeremías 18:1-6 e Isaías 64:8 el barro de alfarero representa a Israel, y en el Nuevo Testamento (Colosenses 1:18; Hechos 2; 1 Corintios 12) el cuerpo formado del barro y vivificado por el Espíritu representa a la iglesia de Cristo."
+  },
+  {
+    category: "La Perspectiva de Apocalipsis 17",
+    question: "Según la página 9 del documento, ¿cómo presenta Apocalipsis 17:1, 2 la misma mezcla ilícita del hierro con el barro usando otros símbolos?",
+    options: [
+      "Como siete trompetas tocando sobre el mar Mediterráneo",
+      "Como la gran ramera [la iglesia apóstata] fornicando con los reyes de la tierra [unión con los poderes civiles]",
+      "Como dos testigos predicando vestidos de cilicio",
+      "Como un caballo blanco saliendo a vencer"
+    ],
+    correct: 1,
+    prophetHint: "Pista Profética: La iglesia es la esposa de Cristo; cuando apela al poder del Estado en vez de Cristo, comete fornicación espiritual con los reyes de la tierra.",
+    reference: "Estudio #1 (pág. 9) • Apocalipsis 17:1, 2",
+    explanation: "En Apocalipsis 17:1, 2 la misma unión de iglesia y Estado (barro y hierro) se describe como la gran ramera (la iglesia apóstata) fornicando con los reyes de la tierra (los poderes civiles)."
+  },
+  {
+    category: "El Significado de la Piedra",
+    question: "En Daniel 2:45 una piedra fue cortada del monte «no con mano» y desmenuzó la imagen. Según 1 Pedro 2:6, Hebreos 9:11 y Marcos 14:58, ¿quién es la Piedra y qué significa «no con mano»?",
+    options: [
+      "La piedra es un meteorito literal y «no con mano» significa que cae del espacio",
+      "La piedra es Jesús (la principal piedra del ángulo) y «no con mano» significa de origen divino/sobrenatural, sin intervención humana",
+      "La piedra es el imperio de Alejandro Magno y «no con mano» significa conquista veloz",
+      "La piedra es la democracia moderna creada por los parlamentos humanos"
+    ],
+    correct: 1,
+    prophetHint: "Pista Profética: Revisa las páginas 9 y 10: 1 Pedro 2:6 identifica a Jesús como la piedra, y Hebreos 9:11 / Marcos 14:58 explican la frase «no hecho de manos».",
+    reference: "Estudio #1 (págs. 9 y 10) • Daniel 2:45; 1 Pedro 2:6; Hebreos 9:11",
+    explanation: "Jesús es la Piedra principal del ángulo (1 Pedro 2:6), y la expresión «no con manos» (Hebreos 9:11; Marcos 14:58) indica que el hombre no tuvo nada que ver en su construcción: es obra exclusiva de Dios."
+  },
+  {
+    category: "La Montaña Eterna",
+    question: "Según Daniel 2:34, 35 y 44 (pág. 10), ¿en qué se convirtió la piedra después de golpear a la imagen en los pies y qué representa?",
+    options: [
+      "Se convirtió en un río caudaloso que representa el comercio mundial",
+      "Se convirtió en un gran monte (montaña) que llenó toda la tierra, representando el reino eterno de Cristo que jamás será destruido",
+      "Se convirtió en una nube pasajera que subió al cielo",
+      "Se convirtió en una quinta estatua de oro puro"
+    ],
+    correct: 1,
+    prophetHint: "Pista Profética: Daniel 2:35 dice que la piedra «fue hecha un gran monte que llenó toda la tierra», explicado en Daniel 2:44.",
+    reference: "Estudio #1 (pág. 10) • Daniel 2:34, 35, 44",
+    explanation: "Después de desmenuzar a la imagen, la piedra se convirtió en un gran monte que llenó toda la tierra, simbolizando el reino eterno que el Dios del cielo levantará y que permanecerá para siempre (Daniel 2:44)."
+  },
+  {
+    category: "Una Decisión Personal • La Roca",
+    question: "En Mateo 21:44 Jesús hizo una aplicación personal de la Roca: «Y el que cayere sobre esta piedra será quebrantado; y sobre quien ella cayere, le desmenuzará». ¿Qué significa esto según la página 10?",
+    options: [
+      "Que debemos evitar acercarnos a las montañas rocosas de Judea",
+      "Que podemos caer ahora sobre la Roca (Cristo) para que rompa nuestro corazón egoísta, o si no lo hacemos ahora, la Roca caerá sobre nosotros y nos desmenuzará cuando Jesús venga",
+      "Que solo los constructores de templos pueden entender las profecías",
+      "Que la piedra solo cayó sobre el imperio babilónico antiguo"
+    ],
+    correct: 1,
+    prophetHint: "Pista Profética: Lee la sección 'Una Decisión Personal' al final de la página 10.",
+    reference: "Estudio #1 (pág. 10) • Mateo 21:44",
+    explanation: "Podemos entregarnos hoy y caer sobre la Roca (Cristo) para que quebrante nuestro orgullo y egoísmo para salvación; de lo contrario, cuando Jesús regrese, la Roca caerá en juicio y desmenuzará a los rebeldes."
+  },
+  {
+    category: "El Fuego, la Espada y el Nuevo Nacimiento",
+    question: "Al concluir el Estudio #1 (págs. 10 y 11) con Mateo 3:11-12, Hebreos 4:12 y Juan 3:3-5, ¿cuál es el llamado espiritual final para entrar al reino eterno de Dios?",
+    options: [
+      "Confiar únicamente en el linaje terrenal y las reformas políticas del Estado",
+      "Permitir que el fuego del Espíritu Santo consuma hoy nuestro pecado, que la espada del Espíritu limpie nuestra vida y nacer de nuevo del agua y del Espíritu",
+      "Esperar hasta la segunda venida para comenzar a estudiar la Biblia",
+      "Unir el hierro con el barro para fortalecer a las naciones"
+    ],
+    correct: 1,
+    prophetHint: "Pista Profética: Revisa la página 11: el fuego del Espíritu (Mateo 3:11-12), la espada del Espíritu (Hebreos 4:12) y el nuevo nacimiento (Juan 3:3, 5).",
+    reference: "Estudio #1 (págs. 10 y 11) • Mateo 3:11-12; Hebreos 4:12; Juan 3:3, 5",
+    explanation: "Si permitimos ahora que el fuego del Espíritu Santo consuma el pecado en nosotros y que la espada de la Palabra limpie nuestra vida mediante el nuevo nacimiento (Juan 3:3, 5), no seremos destruidos en el juicio final y entraremos al reino eterno de Dios."
+  }
+];
+
+// Mapa de capítulos disponibles
+const CHAPTERS_CONFIG = {
+  dan1: {
+    key: 'dan1',
+    badge: 'JOYAS DEL LIBRO DE DANIEL • CAPÍTULO 1',
+    title: 'Daniel 1: Fidelidad en la Corte de Babilonia',
+    allQuestions: QUESTIONS_DAN1,
+    soloQuestions: QUESTIONS_DAN1.filter((_, idx) => idx !== 4), // 15 preguntas para la escalera
+    victoryQuote: '«Así como Dios llamó a Daniel para que testificase por él en Babilonia, nos llama hoy a nosotros para que seamos sus testigos en el mundo.» — Elena G. de White, Profetas y Reyes, p. 358'
+  },
+  dan2: {
+    key: 'dan2',
+    badge: 'LA GRAN CADENA PROFÉTICA • DANIEL CAPÍTULO 2',
+    title: 'Daniel 2: El Fundamento de la Cadena Profética',
+    allQuestions: QUESTIONS_DAN2,
+    soloQuestions: QUESTIONS_DAN2.filter((_, idx) => idx !== 7), // 15 preguntas para la escalera
+    victoryQuote: '«Y en los días de estos reyes el Dios del cielo levantará un reino que no será jamás destruido... permanecerá para siempre.» — Daniel 2:44 (Estudio #1, Pastor Esteban Bohr)'
+  }
+};
+
+let activeChapterKey = 'dan1';
 
 // ============================================================================
 // MOTOR DE SONIDO SINTETIZADO (Web Audio API - Sin archivos externos)
@@ -368,7 +623,8 @@ function toggleSound() {
 }
 
 // ============================================================================
-// JUEGO 1: MODO INDIVIDUAL ¿QUIÉN QUIERE SER MILLONARIO? (15 PREGUNTAS)
+// MODO 1: INDIVIDUAL ¿QUIÉN QUIERE SER MILLONARIO? (15 PREGUNTAS)
+// Soporta Daniel 1 ('dan1') y Daniel 2 ('dan2')
 // ============================================================================
 let currentQuestionIndex = 0;
 let isAnswered = false;
@@ -378,8 +634,13 @@ let lifelinesUsed = {
   wiseMen: false
 };
 
-function startGame() {
+function getSoloQuestions() {
+  return CHAPTERS_CONFIG[activeChapterKey].soloQuestions;
+}
+
+function startGame(chapterKey = 'dan1') {
   stopGroupTimer();
+  activeChapterKey = chapterKey;
   currentQuestionIndex = 0;
   isAnswered = false;
   lifelinesUsed = { fiftyFifty: false, prophet: false, wiseMen: false };
@@ -387,6 +648,9 @@ function startGame() {
   document.getElementById('btn-5050').disabled = false;
   document.getElementById('btn-prophet').disabled = false;
   document.getElementById('btn-wisemen').disabled = false;
+
+  const chConfig = CHAPTERS_CONFIG[activeChapterKey];
+  document.getElementById('solo-chapter-label').textContent = chConfig.badge;
 
   hideAllViews();
   document.getElementById('game-view').classList.add('active');
@@ -417,14 +681,15 @@ function renderLadder() {
 
 function loadQuestion() {
   isAnswered = false;
-  const qData = SOLO_QUESTIONS[currentQuestionIndex];
+  const soloQuestions = getSoloQuestions();
+  const qData = soloQuestions[currentQuestionIndex];
   const levelInfo = LADDER_LEVELS[currentQuestionIndex];
 
   sound.playQuestionStart();
   renderLadder();
 
   document.getElementById('question-counter').textContent =
-    `Pregunta ${currentQuestionIndex + 1} de ${SOLO_QUESTIONS.length} • ${levelInfo.title}`;
+    `Pregunta ${currentQuestionIndex + 1} de ${soloQuestions.length} • ${levelInfo.title}`;
   document.getElementById('question-category').textContent = qData.category;
   document.getElementById('question-text').textContent = qData.question;
 
@@ -452,7 +717,8 @@ function selectAnswer(selectedIndex) {
   if (isAnswered) return;
   isAnswered = true;
 
-  const qData = SOLO_QUESTIONS[currentQuestionIndex];
+  const soloQuestions = getSoloQuestions();
+  const qData = soloQuestions[currentQuestionIndex];
   const isCorrect = selectedIndex === qData.correct;
 
   qData.options.forEach((_, idx) => {
@@ -476,11 +742,11 @@ function selectAnswer(selectedIndex) {
 
   if (isCorrect) {
     sound.playCorrect();
-    statusEl.textContent = '¡RESPUESTA CORRECTA! • Fidelidad Confirmada';
+    statusEl.textContent = '¡RESPUESTA CORRECTA! • Verdad Profética Confirmada';
     statusEl.className = 'explanation-status status-ok';
 
-    if (currentQuestionIndex === SOLO_QUESTIONS.length - 1) {
-      nextBtn.textContent = '🏆 Ver Coronación Final (10 Veces Mejor)';
+    if (currentQuestionIndex === soloQuestions.length - 1) {
+      nextBtn.textContent = '🏆 Ver Coronación Final';
       nextBtn.onclick = () => finishGame(true);
     } else {
       nextBtn.textContent = 'Siguiente Pregunta →';
@@ -506,7 +772,8 @@ function useFiftyFifty() {
   document.getElementById('btn-5050').disabled = true;
   sound.playLifeline();
 
-  const qData = SOLO_QUESTIONS[currentQuestionIndex];
+  const soloQuestions = getSoloQuestions();
+  const qData = soloQuestions[currentQuestionIndex];
   const wrongIndices = [0, 1, 2, 3].filter(i => i !== qData.correct);
   wrongIndices.sort(() => Math.random() - 0.5);
   const toHide = wrongIndices.slice(0, 2);
@@ -526,9 +793,10 @@ function useProphetHint() {
   document.getElementById('btn-prophet').disabled = true;
   sound.playLifeline();
 
-  const qData = SOLO_QUESTIONS[currentQuestionIndex];
+  const soloQuestions = getSoloQuestions();
+  const qData = soloQuestions[currentQuestionIndex];
   const hintBox = document.getElementById('prophet-hint-box');
-  document.getElementById('prophet-hint-title').textContent = '📜 ROLLO DEL PROFETA / CITA INSPIRADA';
+  document.getElementById('prophet-hint-title').textContent = '📜 ROLLO DEL PROFETA / CITA DEL ESTUDIO';
   document.getElementById('prophet-hint-text').textContent = qData.prophetHint;
   hintBox.classList.add('visible');
 }
@@ -539,14 +807,15 @@ function useWiseMen() {
   document.getElementById('btn-wisemen').disabled = true;
   sound.playLifeline();
 
-  const qData = SOLO_QUESTIONS[currentQuestionIndex];
+  const soloQuestions = getSoloQuestions();
+  const qData = soloQuestions[currentQuestionIndex];
   const letters = ['A', 'B', 'C', 'D'];
   const correctLetter = letters[qData.correct];
 
   const hintBox = document.getElementById('prophet-hint-box');
   document.getElementById('prophet-hint-title').textContent = '👥 Consejo de Ananías, Misael y Azarías';
   document.getElementById('prophet-hint-text').textContent =
-    `«Hermano Daniel, hemos estudiado juntos las Escrituras y la presentación: el 88% de la asamblea coincide en que la respuesta correcta es la opción ${correctLetter}.»`;
+    `«Hermano Daniel, hemos orado y estudiado las Escrituras juntos: el 88% de la asamblea confirma que la respuesta correcta es la opción ${correctLetter}.»`;
   hintBox.classList.add('visible');
 }
 
@@ -554,34 +823,39 @@ function finishGame(wonAll) {
   hideAllViews();
   document.getElementById('result-view').classList.add('active');
 
+  const chConfig = CHAPTERS_CONFIG[activeChapterKey];
   const iconEl = document.getElementById('result-icon');
   const titleEl = document.getElementById('result-title');
   const subtitleEl = document.getElementById('result-subtitle');
   const quoteEl = document.getElementById('result-quote');
+  const retryBtn = document.getElementById('btn-retry-solo');
+
+  retryBtn.onclick = () => startGame(activeChapterKey);
 
   if (wonAll) {
     sound.playVictory();
     iconEl.textContent = '👑💎';
-    titleEl.textContent = '¡10 VECES MEJOR! • ANCLA INMUTABLE';
-    subtitleEl.textContent = 'Has respondido correctamente las 15 preguntas sobre las Joyas del Libro de Daniel (Capítulo 1).';
-    quoteEl.textContent = '«Así como Dios llamó a Daniel para que testificase por él en Babilonia, nos llama hoy a nosotros para que seamos sus testigos en el mundo. Tanto en los asuntos menores como en los mayores... desea que revelemos a los hombres los principios de su reino.» — Elena G. de White, Profetas y Reyes, p. 358';
+    titleEl.textContent = `¡VICTORIA TOTAL! • ${chConfig.title.toUpperCase()}`;
+    subtitleEl.textContent = `Has respondido correctamente las 15 preguntas del modo Millonario (${chConfig.title}).`;
+    quoteEl.textContent = chConfig.victoryQuote;
   } else {
-    let safeLevel = "Aprendiz en Judá (0 pts)";
+    let safeLevel = "Buscador en Judá (0 pts)";
     if (currentQuestionIndex >= 10) {
       safeLevel = "Sabio de Judá (32,000 pts asegurados)";
     } else if (currentQuestionIndex >= 5) {
-      safeLevel = "Fiel en la Prueba de los 10 Días (1,000 pts asegurados)";
+      safeLevel = "Fiel en la Prueba (1,000 pts asegurados)";
     }
 
     iconEl.textContent = '📜🕯️';
     titleEl.textContent = `Llegaste hasta la pregunta ${currentQuestionIndex + 1} de 15`;
-    subtitleEl.textContent = `Nivel seguro alcanzado: ${safeLevel}`;
-    quoteEl.textContent = '«Y Daniel propuso en su corazón no contaminarse con la comida ni con el vino del rey.» — Daniel 1:8. ¡Vuelve a intentarlo para alcanzar el nivel 10 Veces Mejor!';
+    subtitleEl.textContent = `${chConfig.title} • Nivel seguro alcanzado: ${safeLevel}`;
+    quoteEl.textContent = chConfig.victoryQuote;
   }
 }
 
 // ============================================================================
-// JUEGO 2: BATALLA DE LOS 4 GRUPOS (GRUPOS A, B, C y D) - 16 PREGUNTAS
+// MODO 2: BATALLA DE LOS 4 GRUPOS (GRUPOS A, B, C y D) - 16 PREGUNTAS
+// Soporta Daniel 1 ('dan1') y Daniel 2 ('dan2')
 // Reglas:
 // - Empieza preguntándole al Grupo A con 1 minuto (60 s) para contestar.
 // - Pasado el minuto, la respuesta se considera errónea.
@@ -606,8 +880,20 @@ let groupWaitingTransition = false;
 let failedGroupsForCurrentQ = 0;
 let disabledOptionsForCurrentQ = [];
 
-function openGroupsSetup() {
+function getGroupQuestions() {
+  return CHAPTERS_CONFIG[activeChapterKey].allQuestions;
+}
+
+function openGroupsSetup(chapterKey = 'dan1') {
   stopGroupTimer();
+  activeChapterKey = chapterKey;
+  const chConfig = CHAPTERS_CONFIG[activeChapterKey];
+
+  document.getElementById('groups-setup-badge').textContent =
+    `${chConfig.badge} • MODO 4 GRUPOS`;
+  document.getElementById('groups-setup-title').textContent =
+    `Batalla de 4 Grupos (A, B, C y D) — ${chConfig.title}`;
+
   hideAllViews();
   document.getElementById('groups-setup-view').classList.add('active');
 }
@@ -670,7 +956,9 @@ function loadGroupQuestion(isRebound = false) {
     disabledOptionsForCurrentQ = [];
   }
 
-  const qData = QUESTIONS_DB[groupQuestionIdx];
+  const chConfig = CHAPTERS_CONFIG[activeChapterKey];
+  const groupQuestions = getGroupQuestions();
+  const qData = groupQuestions[groupQuestionIdx];
   const currentRound = Math.floor(groupQuestionIdx / 4) + 1;
   const currentGroup = groupsData[activeGroupIdx];
 
@@ -678,9 +966,9 @@ function loadGroupQuestion(isRebound = false) {
   renderGroupsScoreboard();
 
   document.getElementById('group-round-label').textContent =
-    `RONDA ${currentRound} DE 4 • MÚLTIPLO DE 4 (16 PREGUNTAS)`;
+    `${chConfig.title.toUpperCase()} • RONDA ${currentRound} DE 4 (16 PREGUNTAS)`;
   document.getElementById('group-question-counter').textContent =
-    `Pregunta ${groupQuestionIdx + 1} de ${QUESTIONS_DB.length}`;
+    `Pregunta ${groupQuestionIdx + 1} de ${groupQuestions.length}`;
 
   const bannerEl = document.getElementById('active-group-banner');
   if (isRebound) {
@@ -692,10 +980,8 @@ function loadGroupQuestion(isRebound = false) {
   document.getElementById('group-question-category').textContent = qData.category;
   document.getElementById('group-question-text').textContent = qData.question;
 
-  // Ocultar caja de explicación/transición
   document.getElementById('group-explanation-box').classList.remove('visible');
 
-  // Renderizar opciones A, B, C, D respetando las ya descartadas en rebote
   const letters = ['A', 'B', 'C', 'D'];
   const optionsGrid = document.getElementById('group-options-grid');
   optionsGrid.innerHTML = '';
@@ -728,7 +1014,7 @@ function startGroupTimer() {
   groupTimerPaused = false;
 
   const pauseBtn = document.getElementById('btn-pause-timer');
-  if (pauseBtn) pauseBtn.textContent = '⏸️ Pausar 1:00';
+  if (pauseBtn) pauseBtn.textContent = '⏸️ Pausar Reloj';
 
   updateTimerUI();
 
@@ -798,7 +1084,7 @@ function handleGroupTimeout() {
   disableAllGroupOptionButtons();
 
   const failingGroup = groupsData[activeGroupIdx];
-  failingGroup.streak = 0; // Pierde la racha
+  failingGroup.streak = 0;
   failedGroupsForCurrentQ++;
 
   const nextGroupIdx = (activeGroupIdx + 1) % 4;
@@ -810,10 +1096,10 @@ function handleGroupTimeout() {
   const textEl = document.getElementById('group-explanation-text');
   const nextBtn = document.getElementById('btn-group-next');
 
-  const qData = QUESTIONS_DB[groupQuestionIdx];
+  const groupQuestions = getGroupQuestions();
+  const qData = groupQuestions[groupQuestionIdx];
 
   if (failedGroupsForCurrentQ < 4) {
-    // Pasa al siguiente grupo en rebote con un nuevo minuto
     statusEl.textContent = `⏰ ¡TIEMPO AGOTADO (1:00)! Respuesta errónea para ${failingGroup.name}`;
     statusEl.className = 'explanation-status status-rebound';
     refEl.textContent = `Turno pasa a ${nextGroup.name}`;
@@ -825,7 +1111,6 @@ function handleGroupTimeout() {
       loadGroupQuestion(true);
     };
   } else {
-    // Los 4 grupos fallaron la misma pregunta
     const correctBtn = document.getElementById(`grp-opt-btn-${qData.correct}`);
     if (correctBtn) correctBtn.classList.add('correct');
 
@@ -847,7 +1132,8 @@ function handleGroupAnswer(selectedIndex) {
   stopGroupTimer();
   disableAllGroupOptionButtons();
 
-  const qData = QUESTIONS_DB[groupQuestionIdx];
+  const groupQuestions = getGroupQuestions();
+  const qData = groupQuestions[groupQuestionIdx];
   const currentGroup = groupsData[activeGroupIdx];
   const isCorrect = selectedIndex === qData.correct;
 
@@ -868,11 +1154,10 @@ function handleGroupAnswer(selectedIndex) {
 
     refEl.textContent = qData.reference;
 
-    // Verificar si completó 4 seguidas bien
     if (currentGroup.streak >= 4) {
       sound.playVictory();
-      currentGroup.score += 200; // Bonificación por 4 seguidas
-      currentGroup.streak = 0; // Reinicia ciclo de 4 para el grupo
+      currentGroup.score += 200;
+      currentGroup.streak = 0;
       const nextGroupIdx = (activeGroupIdx + 1) % 4;
       const nextGroup = groupsData[nextGroupIdx];
 
@@ -882,7 +1167,6 @@ function handleGroupAnswer(selectedIndex) {
 
       setupAdvanceToNextGroupQuestion(nextGroupIdx, nextBtn);
     } else {
-      // Mantiene su turno porque aún no llega a 4 seguidas
       statusEl.textContent = `✅ ¡CORRECTO ${currentGroup.name.toUpperCase()}! (+100 pts) • Racha: ${currentGroup.streak}/4 seguidas (Conserva el turno)`;
       statusEl.className = 'explanation-status status-ok';
       textEl.textContent = qData.explanation;
@@ -890,7 +1174,6 @@ function handleGroupAnswer(selectedIndex) {
       setupAdvanceToNextGroupQuestion(activeGroupIdx, nextBtn);
     }
   } else {
-    // Respuesta errónea -> pasa al siguiente grupo
     sound.playWrong();
     const wrongBtn = document.getElementById(`grp-opt-btn-${selectedIndex}`);
     if (wrongBtn) wrongBtn.classList.add('wrong');
@@ -914,7 +1197,6 @@ function handleGroupAnswer(selectedIndex) {
         loadGroupQuestion(true);
       };
     } else {
-      // Los 4 grupos fallaron
       const correctBtn = document.getElementById(`grp-opt-btn-${qData.correct}`);
       if (correctBtn) correctBtn.classList.add('correct');
 
@@ -932,12 +1214,13 @@ function handleGroupAnswer(selectedIndex) {
 }
 
 function setupAdvanceToNextGroupQuestion(nextTurnGroupIdx, nextBtn) {
-  if (groupQuestionIdx >= QUESTIONS_DB.length - 1) {
+  const groupQuestions = getGroupQuestions();
+  if (groupQuestionIdx >= groupQuestions.length - 1) {
     nextBtn.textContent = '🏆 Ver Podio Final de los 4 Grupos';
     nextBtn.onclick = () => finishGroupsGame();
   } else {
     const nextGroupName = groupsData[nextTurnGroupIdx].name;
-    nextBtn.textContent = `Siguiente Pregunta (${groupQuestionIdx + 2}/16 • Turno: ${nextGroupName}) →`;
+    nextBtn.textContent = `Siguiente Pregunta (${groupQuestionIdx + 2}/${groupQuestions.length} • Turno: ${nextGroupName}) →`;
     nextBtn.onclick = () => {
       activeGroupIdx = nextTurnGroupIdx;
       groupQuestionIdx++;
@@ -952,11 +1235,18 @@ function finishGroupsGame() {
   document.getElementById('groups-result-view').classList.add('active');
   sound.playVictory();
 
+  const chConfig = CHAPTERS_CONFIG[activeChapterKey];
   const sorted = [...groupsData].sort((a, b) => b.score - a.score || b.correctCount - a.correctCount);
   const winner = sorted[0];
 
   document.getElementById('groups-winner-title').textContent =
     `🏆 ¡Ganador: ${winner.name} con ${winner.score} pts!`;
+  document.getElementById('groups-winner-subtitle').textContent =
+    `Clasificación final tras las 4 Rondas (16 preguntas de ${chConfig.title}):`;
+  document.getElementById('groups-winner-quote').textContent = chConfig.victoryQuote;
+
+  const retryBtn = document.getElementById('btn-retry-groups');
+  retryBtn.onclick = () => openGroupsSetup(activeChapterKey);
 
   const podiumEl = document.getElementById('groups-podium-list');
   podiumEl.innerHTML = '';

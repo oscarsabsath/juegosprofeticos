@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Juegos Proféticos • Joyas del Libro de Daniel</title>
+  <title>Juegos Proféticos • Joyas de Daniel 1 y Daniel 2</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -14,7 +14,7 @@
       <div class="brand-icon">⚓</div>
       <div class="brand-text">
         <h1>Juegos Proféticos</h1>
-        <span>ESTUDIO PROFÉTICO • UN ANCLA INMUTABLE</span>
+        <span>ESTUDIO PROFÉTICO • DANIEL CAPÍTULOS 1 Y 2</span>
       </div>
     </div>
 
@@ -29,53 +29,54 @@
   <!-- ==================================================================== -->
   <main id="portal-view" class="view-section active">
     <section class="hero-banner">
-      <span class="hero-badge">JOYAS DEL LIBRO DE DANIEL • CAPÍTULO 1</span>
-      <h2>Fidelidad Inquebrantable en la Corte de Babilonia</h2>
+      <span class="hero-badge">PORTAL INTERACTIVO • LA GRAN CADENA PROFÉTICA</span>
+      <h2>Juegos Proféticos: Daniel Capítulos 1 y 2</h2>
       <p>
-        Elige el modo de juego para estudiar el asedio de Jerusalén (606 a.C.), la guerra espiritual
-        por la identidad, el rechazo a la ración del rey (Daniel 1:8), la prueba de los 10 días y
-        los consejos del Espíritu de Profecía.
+        Estudia y pon a prueba tus conocimientos bíblicos con los dos modos de juego oficiales
+        (<strong>Modo Millonario Individual</strong> y <strong>Batalla de 4 Grupos A, B, C y D con reloj de 1 minuto</strong>)
+        para <strong>Daniel Capítulo 1</strong> y <strong>Daniel Capítulo 2</strong> (Estudio #1: <em>El Fundamento de la Cadena Profética</em>).
       </p>
       <div class="hero-buttons">
-        <button class="btn-primary" onclick="startGame()">
-          ▶ Juego 1: Modo Millonario (Individual)
+        <button class="btn-primary" onclick="startGame('dan2')">
+          ▶ Nuevo: Daniel 2 • Modo Millonario
         </button>
-        <button class="btn-secondary-gold" onclick="openGroupsSetup()">
-          👥 Juego 2: Batalla de 4 Grupos (A, B, C y D • 1 Minuto)
+        <button class="btn-secondary-gold" onclick="openGroupsSetup('dan2')">
+          👥 Nuevo: Daniel 2 • 4 Grupos (A, B, C y D • 1 Minuto)
         </button>
       </div>
     </section>
 
-    <h3 class="section-title">💎 Selección de Juegos Proféticos</h3>
+    <h3 class="section-title">🗿 Daniel Capítulo 2: El Fundamento de la Cadena Profética (Pastor Esteban Bohr)</h3>
 
-    <div class="games-grid">
-      <!-- JUEGO 1: MILLONARIO INDIVIDUAL -->
+    <div class="games-grid" style="margin-bottom: 2.5rem;">
+      <!-- DANIEL 2 - JUEGO 1: MILLONARIO INDIVIDUAL -->
       <article class="game-card featured">
         <div>
-          <div class="card-tag">JUEGO #1 • FORMATO MILLONARIO</div>
-          <h3>Daniel 1: ¿Quién quiere ser «10 Veces Mejor»?</h3>
+          <div class="card-tag">DANIEL 2 • MODO MILLONARIO</div>
+          <h3>Daniel 2: ¿Quién conoce el Fundamento de la Cadena Profética?</h3>
           <p>
-            15 preguntas progresivas desde el sitio de Jerusalén hasta el examen final ante Nabucodonosor.
-            Incluye 3 comodines (50:50, Consultar al Profeta y Sabios de Judá) y explicación profética.
+            15 preguntas progresivas basadas en el Estudio #1: el sueño de Nabucodonosor en su 2.° año, la bancarrota de los sabios de Babilonia,
+            la escuela Historicista, los metales de la estatua (Babilonia, Medo-Persia, Grecia, Roma, Europa dividida), el barro de alfarero y la Roca Eterna.
           </p>
           <div class="card-topics">
             <span class="topic-pill">15 Niveles</span>
             <span class="topic-pill">3 Comodines</span>
-            <span class="topic-pill">Explicación Bíblica</span>
+            <span class="topic-pill">Fechas 605 a.C. – 538 d.C.</span>
+            <span class="topic-pill">Hierro y Barro</span>
           </div>
         </div>
-        <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="startGame()">
-          🎯 Jugar Modo Millonario
+        <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="startGame('dan2')">
+          🎯 Jugar Modo Millonario (Daniel 2)
         </button>
       </article>
 
-      <!-- JUEGO 2: BATALLA DE 4 GRUPOS (A, B, C, D) -->
+      <!-- DANIEL 2 - JUEGO 2: BATALLA DE 4 GRUPOS (A, B, C, D) -->
       <article class="game-card featured">
         <div>
-          <div class="card-tag">JUEGO #2 • 4 GRUPOS (A, B, C y D)</div>
-          <h3>Daniel 1: Desafío por Equipos (Racha de 4 y 1 Minuto)</h3>
+          <div class="card-tag">DANIEL 2 • 4 GRUPOS (A, B, C y D)</div>
+          <h3>Daniel 2: Batalla de los 4 Grupos (Racha de 4 y 1 Minuto)</h3>
           <p>
-            16 preguntas (múltiplo de 4: 4 rondas). Inicia el <strong>Grupo A</strong> con <strong>1 minuto (60 s)</strong>.
+            16 preguntas de Daniel 2 (múltiplo de 4: 4 rondas). Empieza preguntándole al <strong>Grupo A</strong> con <strong>1 minuto (60 s)</strong>.
             Pasado el minuto es errónea. Solo pasa al siguiente grupo si falla (rebote) o si responde <strong>4 seguidas bien</strong>.
           </p>
           <div class="card-topics">
@@ -85,36 +86,118 @@
             <span class="topic-pill">16 Preguntas (4x4)</span>
           </div>
         </div>
-        <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="openGroupsSetup()">
-          👥 Iniciar Juego de 4 Grupos
-        </button>
-      </article>
-
-      <!-- PRÓXIMO JUEGO 3 -->
-      <article class="game-card locked">
-        <div>
-          <div class="card-tag">PRÓXIMAMENTE • CAPÍTULO 2</div>
-          <h3>Daniel 2: El Sueño del Rey y la Roca Eterna</h3>
-          <p>
-            El misterio revelado a Daniel en visión de noche y la gran imagen de los imperios mundiales hasta el reino eterno de Dios.
-          </p>
-          <div class="card-topics">
-            <span class="topic-pill">Cabeza de Oro</span>
-            <span class="topic-pill">Imperios Mundiales</span>
-            <span class="topic-pill">La Piedra Eterna</span>
-          </div>
-        </div>
-        <button class="btn-icon" style="width: 100%; justify-content: center;" disabled>
-          🔒 Próximo Estudio Profético
+        <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="openGroupsSetup('dan2')">
+          👥 Iniciar 4 Grupos (Daniel 2)
         </button>
       </article>
     </div>
 
-    <!-- RESUMEN DE ESTUDIO DE LA PRESENTACIÓN -->
-    <section class="study-summary">
-      <h3 class="section-title" style="margin-bottom: 0.5rem;">📖 Repaso Rápido de la Presentación (Daniel Capítulo 1)</h3>
+    <h3 class="section-title">💎 Daniel Capítulo 1: Fidelidad Inquebrantable en la Corte de Babilonia</h3>
+
+    <div class="games-grid">
+      <!-- DANIEL 1 - JUEGO 1: MILLONARIO INDIVIDUAL -->
+      <article class="game-card featured">
+        <div>
+          <div class="card-tag">DANIEL 1 • MODO MILLONARIO</div>
+          <h3>Daniel 1: ¿Quién quiere ser «10 Veces Mejor»?</h3>
+          <p>
+            15 preguntas progresivas desde el sitio de Jerusalén (606 a.C.), el cambio de nombres, Daniel 1:8 y la prueba de los 10 días hasta el examen final ante Nabucodonosor.
+            Incluye 3 comodines (50:50, Consultar al Profeta y Sabios de Judá).
+          </p>
+          <div class="card-topics">
+            <span class="topic-pill">15 Niveles</span>
+            <span class="topic-pill">3 Comodines</span>
+            <span class="topic-pill">Explicación Bíblica</span>
+          </div>
+        </div>
+        <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="startGame('dan1')">
+          🎯 Jugar Modo Millonario (Daniel 1)
+        </button>
+      </article>
+
+      <!-- DANIEL 1 - JUEGO 2: BATALLA DE 4 GRUPOS (A, B, C, D) -->
+      <article class="game-card featured">
+        <div>
+          <div class="card-tag">DANIEL 1 • 4 GRUPOS (A, B, C y D)</div>
+          <h3>Daniel 1: Batalla de los 4 Grupos (Racha de 4 y 1 Minuto)</h3>
+          <p>
+            16 preguntas de Daniel 1 (múltiplo de 4: 4 rondas). Inicia el <strong>Grupo A</strong> con <strong>1 minuto (60 s)</strong>.
+            Pasado el minuto es errónea. Solo pasa al siguiente grupo si falla (rebote) o si responde <strong>4 seguidas bien</strong>.
+          </p>
+          <div class="card-topics">
+            <span class="topic-pill">Grupos A, B, C y D</span>
+            <span class="topic-pill">Reloj 1 Minuto</span>
+            <span class="topic-pill">Racha de 4 Seguidas</span>
+            <span class="topic-pill">16 Preguntas (4x4)</span>
+          </div>
+        </div>
+        <button class="btn-primary" style="width: 100%; justify-content: center;" onclick="openGroupsSetup('dan1')">
+          👥 Iniciar 4 Grupos (Daniel 1)
+        </button>
+      </article>
+    </div>
+
+    <!-- RESUMEN DE ESTUDIO DE DANIEL 2 -->
+    <section class="study-summary" style="margin-top: 2.2rem;">
+      <h3 class="section-title" style="margin-bottom: 0.5rem;">🗿 Repaso Rápido: La Gran Imagen de Daniel Capítulo 2 (Estudio #1)</h3>
       <p style="color: var(--text-muted); font-size: 0.92rem;">
-        Consulta esta tabla resumen de la presentación antes de iniciar la partida si deseas repasar el significado de los nombres:
+        Resumen del panorama historicista de los imperios mundiales y símbolos proféticos del Estudio #1 del Pastor Esteban Bohr:
+      </p>
+      <table class="names-table">
+        <thead>
+          <tr>
+            <th>Elemento de la Estatua</th>
+            <th>Imperio / Poder Representado</th>
+            <th>Fechas Históricas</th>
+            <th>Significado y Textos Clave</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Cabeza de Oro fino</strong></td>
+            <td><strong>Babilonia</strong> (Nabucodonosor)</td>
+            <td>605 a.C. – 539 a.C.</td>
+            <td>Daniel 2:38 • Cayó ante Ciro y los medo-persas en 539 a.C.</td>
+          </tr>
+          <tr>
+            <td><strong>Pecho y Brazos de Plata</strong></td>
+            <td><strong>Medo-Persia</strong></td>
+            <td>539 a.C. – 331 a.C.</td>
+            <td>Daniel 2:39 • Inferior al oro; dos reinos unidos en coalición.</td>
+          </tr>
+          <tr>
+            <td><strong>Vientre y Muslos de Bronce</strong></td>
+            <td><strong>Grecia</strong> (Alejandro Magno)</td>
+            <td>331 a.C. – 168 a.C.</td>
+            <td>Daniel 2:39 • Dominó desde el mar Egeo hasta las fronteras de la India.</td>
+          </tr>
+          <tr>
+            <td><strong>Piernas de Hierro</strong></td>
+            <td><strong>Roma Imperial (Pagana)</strong></td>
+            <td>168 a.C. – 476 d.C.</td>
+            <td>Daniel 2:40 • «La monarquía de hierro» (<em>El Conflicto de los Siglos</em>, p. 42).</td>
+          </tr>
+          <tr>
+            <td><strong>Diez Dedos (Hierro y Barro)</strong></td>
+            <td><strong>Europa Dividida + Unión Iglesia-Estado</strong></td>
+            <td>476 d.C. (división) / 538 d.C. (barro)</td>
+            <td>Hierro = Estado civil; Barro cenagoso = iglesia apóstata unida al Estado (CBA 7A, p. 178; Apoc. 17:1-2).</td>
+          </tr>
+          <tr>
+            <td><strong>Piedra cortada «no con mano»</strong></td>
+            <td><strong>Cristo y su Reino Eterno</strong></td>
+            <td>Segunda Venida → Eternidad</td>
+            <td>1 Pedro 2:6; Hebreos 9:11; Mateo 21:44; Daniel 2:35, 44 (se convierte en un gran monte).</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- RESUMEN DE ESTUDIO DE DANIEL 1 -->
+    <section class="study-summary" style="margin-top: 1.5rem;">
+      <h3 class="section-title" style="margin-bottom: 0.5rem;">📖 Repaso Rápido: Significado de los Nombres (Daniel Capítulo 1)</h3>
+      <p style="color: var(--text-muted); font-size: 0.92rem;">
+        Contraste entre los nombres hebreos (en honor al Dios verdadero) y los nombres caldeos impuestos en Babilonia:
       </p>
       <table class="names-table">
         <thead>
@@ -156,7 +239,7 @@
   </main>
 
   <!-- ==================================================================== -->
-  <!-- VISTA 2: JUEGO 1 - ESTILO ¿QUIÉN QUIERE SER MILLONARIO?              -->
+  <!-- VISTA 2: MODO MILLONARIO INDIVIDUAL (DANIEL 1 Y DANIEL 2)            -->
   <!-- ==================================================================== -->
   <section id="game-view" class="view-section">
     <div class="millionaire-layout">
@@ -165,7 +248,7 @@
       <div class="stage-panel">
         <div class="stage-top-bar">
           <div class="level-indicator">
-            <span class="chapter-label">JOYAS DEL LIBRO DE DANIEL • CAPÍTULO 1</span>
+            <span class="chapter-label" id="solo-chapter-label">JOYAS DEL LIBRO DE DANIEL</span>
             <span class="question-counter" id="question-counter">Pregunta 1 de 15</span>
           </div>
 
@@ -174,7 +257,7 @@
             <button class="lifeline-btn" id="btn-5050" onclick="useFiftyFifty()" title="Elimina 2 opciones incorrectas">
               ⚡ 50:50
             </button>
-            <button class="lifeline-btn" id="btn-prophet" onclick="useProphetHint()" title="Muestra una pista bíblica o cita inspirada de la presentación">
+            <button class="lifeline-btn" id="btn-prophet" onclick="useProphetHint()" title="Muestra una pista bíblica o cita del estudio">
               📜 Consultar al Profeta
             </button>
             <button class="lifeline-btn" id="btn-wisemen" onclick="useWiseMen()" title="Consulta a Ananías, Misael y Azarías">
@@ -221,7 +304,7 @@
   </section>
 
   <!-- ==================================================================== -->
-  <!-- VISTA 3: RESULTADO JUEGO 1 (MILLONARIO INDIVIDUAL)                   -->
+  <!-- VISTA 3: RESULTADO MODO MILLONARIO INDIVIDUAL                        -->
   <!-- ==================================================================== -->
   <section id="result-view" class="view-section">
     <div class="stage-panel result-card">
@@ -230,19 +313,19 @@
       <p class="result-subtitle" id="result-subtitle"></p>
       <blockquote class="result-quote" id="result-quote"></blockquote>
       <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <button class="btn-primary" onclick="startGame()">🔄 Jugar de Nuevo</button>
+        <button class="btn-primary" id="btn-retry-solo" onclick="startGame(activeChapterKey)">🔄 Jugar de Nuevo</button>
         <button class="btn-icon" onclick="showPortal()">🏛️ Volver al Portal de Juegos</button>
       </div>
     </div>
   </section>
 
   <!-- ==================================================================== -->
-  <!-- VISTA 4: CONFIGURACIÓN DEL JUEGO 2 (4 GRUPOS A, B, C y D)            -->
+  <!-- VISTA 4: CONFIGURACIÓN MODO 4 GRUPOS (A, B, C y D)                   -->
   <!-- ==================================================================== -->
   <section id="groups-setup-view" class="view-section">
     <div class="setup-panel">
-      <span class="hero-badge">JUEGO #2 • MODO POR EQUIPOS</span>
-      <h2 style="font-size: 1.8rem; margin-bottom: 0.75rem;">Batalla Profética de los 4 Grupos (A, B, C y D)</h2>
+      <span class="hero-badge" id="groups-setup-badge">MODO 4 GRUPOS</span>
+      <h2 id="groups-setup-title" style="font-size: 1.8rem; margin-bottom: 0.75rem;">Batalla Profética de los 4 Grupos (A, B, C y D)</h2>
 
       <div class="rules-summary">
         <strong>📋 Reglas Oficiales de la Partida:</strong>
@@ -289,7 +372,7 @@
   </section>
 
   <!-- ==================================================================== -->
-  <!-- VISTA 5: TABLERO ACTIVO JUEGO 2 (4 GRUPOS A, B, C y D)               -->
+  <!-- VISTA 5: TABLERO ACTIVO MODO 4 GRUPOS (A, B, C y D)                  -->
   <!-- ==================================================================== -->
   <section id="groups-game-view" class="view-section">
     <!-- MARCADOR DE LOS 4 GRUPOS -->
@@ -303,7 +386,7 @@
           <span class="question-counter" id="group-question-counter">Pregunta 1 de 16</span>
         </div>
         <div>
-          <button class="btn-icon" onclick="openGroupsSetup()">⚙️ Reiniciar Grupos</button>
+          <button class="btn-icon" onclick="openGroupsSetup(activeChapterKey)">⚙️ Reiniciar Grupos</button>
         </div>
       </div>
 
@@ -355,16 +438,16 @@
     <div class="stage-panel result-card">
       <div class="result-icon">🏆👑</div>
       <h2 class="result-title" id="groups-winner-title">¡Partida Finalizada!</h2>
-      <p class="result-subtitle">Clasificación final tras las 4 Rondas (16 preguntas de Daniel Capítulo 1):</p>
+      <p class="result-subtitle" id="groups-winner-subtitle">Clasificación final tras las 4 Rondas (16 preguntas):</p>
 
       <div class="podium-list" id="groups-podium-list"></div>
 
-      <blockquote class="result-quote">
-        «Así como Dios llamó a Daniel para que testificase por él en Babilonia, nos llama hoy a nosotros para que seamos sus testigos en el mundo.» — Elena G. de White, Profetas y Reyes, p. 358
+      <blockquote class="result-quote" id="groups-winner-quote">
+        «Y en los días de estos reyes el Dios del cielo levantará un reino que no será jamás destruido... permanecerá para siempre.» — Daniel 2:44
       </blockquote>
 
       <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <button class="btn-primary" onclick="openGroupsSetup()">🔄 Jugar Otra Partida de 4 Grupos</button>
+        <button class="btn-primary" id="btn-retry-groups" onclick="openGroupsSetup(activeChapterKey)">🔄 Jugar Otra Partida de 4 Grupos</button>
         <button class="btn-icon" onclick="showPortal()">🏛️ Volver al Portal de Juegos</button>
       </div>
     </div>
